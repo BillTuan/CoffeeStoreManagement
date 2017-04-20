@@ -1,0 +1,51 @@
+/* 
+  Localizable.strings
+  RestaurantManagement
+
+  Created by Bill on 4/16/17.
+  Copyright © 2017 Bill. All rights reserved.
+*/
+
+"BarItem1" = "Tables";
+"BarItem2" = "Sale";
+"BarItem3" = "Menu";
+"BarItem4" = "Settings";
+"Back" = "Back";
+"Area" = "Area";
+"Tables" = "Tables";
+"MessageAlertTable" = "What do want to do?";
+"TittleAlertTable" = "Select this table";
+"AlertCancel" = "Cancel";
+"TotalMoney" = "Total money";
+"AddFood" = "Add more food";
+"Pay" = "Pay";
+"AddMoreFood" = "Add more food";
+"FoodID" = "ID";
+"FoodName" = "Name";
+"FoodPrice" = "Price";
+"AlertChooseAmountFood" = "Choose amount";
+"AmountOfFood" = "Amount of food";
+"Setting" = "Setting";
+"Language" = "Language";
+"EditStore" = "Edit store";
+"Edit" = "Edit";
+"ChooseLaguage" = "Choose language";
+"StoreInfo" = "Store Info";
+"Name" = "Name";
+"Address" = "Address";
+"Currency" = "Currency";
+"StoreArea" = "Store Area";
+"Detail" = "Detail";
+"StoreTable" = "Store Tables";
+"MenuItem" = "Menu Items";
+"Add" = "Add";
+"Edit" = "Edit";
+"ItemID" = "Item ID";
+"ItemName" = "Item Name";
+"Price" = "Price";
+"Category" = "Category";
+"AddNewCategory" = "Add new category";
+"EditArea" = "Edit Area";
+"EditTable" = "Edit Table";
+"EditFood" = "Edit Food";
+"DoYouWantPay" = "Do you want to pay this table";

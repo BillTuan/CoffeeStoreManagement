@@ -1,0 +1,12 @@
+/* 
+  Localizable.strings
+  RestaurantManagement
+
+  Created by Bill on 4/16/17.
+  Copyright © 2017 Bill. All rights reserved.
+*/
+
+"BarItem1" = "Bàn";
+"BarItem2" = "Doanh số";
+"BarItem3" = "Thực đơn";
+"BarItem4" = "Cái đặt";

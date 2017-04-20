@@ -29,11 +29,12 @@ class AreaTableViewController: UITableViewController {
         self.tabBarItem.title = NSLocalizedString("BarItem1", comment: "get bar item title")
         self.navigationItem.title = NSLocalizedString("Area", comment: "area")
         database = DB.openDatabase()
-//        DB.createAreaTable(database: database)
-//        DB.createTableTable(database: database)
-//        DB.createTableCategory(database: database)
-//        DB.createTableFood(database: database)
-//        DB.createTableBill(database: database)
+        DB.createAreaTable(database: database)
+        DB.createTableTable(database: database)
+        DB.createTableCategory(database: database)
+        DB.createTableFood(database: database)
+        DB.createTableBill(database: database)
+        DB.createTableBillInfo(database: database)
  //       Areas = DBArea.loadArea(database: database)
 //        var Tables = [Table]()
 //        Tables = DBTable.getTableWithIDArea(database: database, idArea: 1)
@@ -79,7 +80,7 @@ class AreaTableViewController: UITableViewController {
             let id = tableView.indexPathForSelectedRow
             let des = segue.destination as! UINavigationController
             let target = des.topViewController as! TableViewController
-            target.idArea = (id?.row)! + 1
+            target.idArea = Areas[(id?.row)!].idArea
         }
     }
 
