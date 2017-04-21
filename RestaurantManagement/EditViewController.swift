@@ -122,8 +122,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        setLabelView()
-        self.navigationItem.title = NSLocalizedString("EditStore", comment: "")
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
         addTapGestureImageView()
         database = DB.openDatabase()
         tableAreaText.addTarget(self, action: #selector(pickArea), for: .editingDidBegin)
@@ -151,22 +151,23 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     func setLabelView()
     {
-        storeInfoLabel.text = NSLocalizedString("StoreInfo", comment: "")
-        storeNameLabel.text = NSLocalizedString("Name", comment: "")
-        storeAdressLabel.text = NSLocalizedString("Address", comment: "")
-        storeCurrencyLabel.text = NSLocalizedString("Currency", comment: "")
-        storeAreaLabel.text = NSLocalizedString("StoreArea", comment: "")
-        areaNameLabel.text = NSLocalizedString("Area", comment: "")
-        areaDetailLabel.text = NSLocalizedString("Detail", comment: "")
-        storeTableLabel.text = NSLocalizedString("StoreTable", comment: "")
-        tableNameLabel.text = NSLocalizedString("Name", comment: "")
-        tableAreaLabel.text = NSLocalizedString("Area", comment: "")
-        tableDetailLabel.text = NSLocalizedString("Detail", comment: "")
-        menuItemLabel.text = NSLocalizedString("MenuItem", comment: "")
-        itemIDLabel.text = NSLocalizedString("ItemID", comment: "")
-        itemNameLabel.text = NSLocalizedString("ItemName", comment: "")
-        itemPriceLabel.text = NSLocalizedString("Price", comment: "")
-        itemCategoryLabel.text = NSLocalizedString("Category", comment: "")
+        self.navigationItem.title = Localization("EditStore")
+        storeInfoLabel.text = Localization("StoreInfo")
+        storeNameLabel.text = Localization("Name")
+        storeAdressLabel.text = Localization("Address")
+        storeCurrencyLabel.text = Localization("Currency")
+        storeAreaLabel.text = Localization("StoreArea")
+        areaNameLabel.text = Localization("Area")
+        areaDetailLabel.text = Localization("Detail")
+        storeTableLabel.text = Localization("StoreTable")
+        tableNameLabel.text = Localization("Name")
+        tableAreaLabel.text = Localization("Area")
+        tableDetailLabel.text = Localization("Detail")
+        menuItemLabel.text = Localization("MenuItem")
+        itemIDLabel.text = Localization("ItemID")
+        itemNameLabel.text = Localization("ItemName")
+        itemPriceLabel.text = Localization("Price")
+        itemCategoryLabel.text = Localization("Category")
     }
     
     func addTapGestureImageView()
@@ -360,5 +361,13 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
                 idCategory = row + 1
             }
         }
+    }
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        setLabelView()
     }
 }

@@ -12,6 +12,8 @@ class EditAreaTableViewController: UITableViewController {
 
     //MARK: - Data model
     var Areas = [Area]()
+    var name = ""
+    var detail = ""
     //MARK: - UIVariables
     var database: OpaquePointer?
 
@@ -24,7 +26,9 @@ class EditAreaTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.title = NSLocalizedString("EditArea", comment: "")
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
         database = DB.openDatabase()
         Areas = DBArea.loadArea(database: database)
     }
@@ -51,8 +55,8 @@ class EditAreaTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "editArea_cell", for: indexPath) as! EditAreaTableViewCell
 
         // Configure the cell...
-        cell.name.text = NSLocalizedString("Name", comment: "")
-        cell.detail.text = NSLocalizedString("Detail", comment: "")
+        cell.name.text = name
+        cell.detail.text = detail
         cell.nameLabel.text = Areas[indexPath.row].name
         cell.detailLabel.text = Areas[indexPath.row].detail
         cell.areaImageView.imageFromAssetURL(assetURL: NSURL(string:Areas[indexPath.row].image!)!)
@@ -74,6 +78,15 @@ class EditAreaTableViewController: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
 
         }
-        
+    }
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        self.navigationItem.title = Localization("EditArea")
+        name = Localization("Name")
+        detail = Localization("Detail")
     }
 }

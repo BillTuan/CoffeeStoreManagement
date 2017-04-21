@@ -13,6 +13,7 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
     //MARK: *** UIVariables
     var tableName = ""
     var idTable = 0
+    var message = ""
     //MARK: *** Data Model
     var database : OpaquePointer?
     var Bills = [Bill]()
@@ -26,7 +27,7 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
     //MARK: *** UIEvents
     
     @IBAction func payButtonTapped(_ sender: Any) {
-        let alert = UIAlertController(title: "", message: NSLocalizedString("DoYouWantPay", comment: ""), preferredStyle: .alert)
+        let alert = UIAlertController(title: "", message: message, preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction) in
             self.Bills[0].status = 1
             var thisTable = DBTable.selectTableWithID(database: self.database, idTable: self.idTable)
@@ -50,9 +51,9 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
         // Do any additional setup after loading the view, typically from a nib.
         foodTableView.delegate = self
         foodTableView.dataSource = self
-        totalMoneyLabel.text = NSLocalizedString("TotalMoney", comment: "")
-        billButton.setTitle(NSLocalizedString("Pay", comment: ""), for: .normal)
-        addFoodButton.setTitle(NSLocalizedString("AddMoreFood", comment: ""), for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
+
         moneyTableLabel.text = "0"
         self.navigationItem.title = tableName
         database = DB.openDatabase()
@@ -107,5 +108,17 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
         Bills[0].totalPrice = totalMoney
         if DBBill.updateBill(database: database, Bill: Bills[0]){}
         self.moneyTableLabel.text = String(totalMoney)
+    }
+    
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        totalMoneyLabel.text = Localization("TotalMoney")
+        billButton.setTitle(Localization("Pay"), for: .normal)
+        addFoodButton.setTitle(Localization("AddMoreFood"), for: .normal)
+        message = Localization("DoYouWantPay")
     }
 }

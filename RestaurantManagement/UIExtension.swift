@@ -42,3 +42,16 @@ extension UIImageView {
         }
     }
 }
+
+extension Int{
+    func toCurrency() -> String
+    {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.usesGroupingSeparator = true
+        currencyFormatter.numberStyle = .currency
+        // localize to your grouping and decimal separator
+        currencyFormatter.locale = Locale(identifier: "vi-vn")
+        let priceString = currencyFormatter.string(from: self as NSNumber)
+        return priceString!
+    }
+}

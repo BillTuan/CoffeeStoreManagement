@@ -42,6 +42,7 @@
 		A9A9A33B1EA75C3C00757477 /* EditAreaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A9A33A1EA75C3C00757477 /* EditAreaTableViewCell.swift */; };
 		A9A9A33D1EA8564200757477 /* EditTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A9A33C1EA8564200757477 /* EditTable.swift */; };
 		A9A9A33F1EA8566500757477 /* EditTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A9A33E1EA8566500757477 /* EditTableCell.swift */; };
+		A9CAE64A1EAA5B72008FD8DB /* Localisator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAE6491EAA5B72008FD8DB /* Localisator.swift */; };
 		A9D00C411EA86520008736C6 /* EditFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C401EA86520008736C6 /* EditFood.swift */; };
 		A9D00C431EA86539008736C6 /* EditFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C421EA86539008736C6 /* EditFoodCell.swift */; };
 		A9D00C451EA873B1008736C6 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C441EA873B1008736C6 /* Bill.swift */; };
@@ -90,6 +91,7 @@
 		A9A9A33A1EA75C3C00757477 /* EditAreaTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditAreaTableViewCell.swift; sourceTree = "<group>"; };
 		A9A9A33C1EA8564200757477 /* EditTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTable.swift; sourceTree = "<group>"; };
 		A9A9A33E1EA8566500757477 /* EditTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableCell.swift; sourceTree = "<group>"; };
+		A9CAE6491EAA5B72008FD8DB /* Localisator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localisator.swift; sourceTree = "<group>"; };
 		A9D00C401EA86520008736C6 /* EditFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFood.swift; sourceTree = "<group>"; };
 		A9D00C421EA86539008736C6 /* EditFoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFoodCell.swift; sourceTree = "<group>"; };
 		A9D00C441EA873B1008736C6 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 		A9103A861EA304C800E50456 /* Helper */ = {
 			isa = PBXGroup;
 			children = (
+				A9CAE6491EAA5B72008FD8DB /* Localisator.swift */,
 				A9A5DFA51EA622C70044A075 /* UIExtension.swift */,
 			);
 			name = Helper;
@@ -346,6 +349,7 @@
 				A9A9A33D1EA8564200757477 /* EditTable.swift in Sources */,
 				A9103A711EA303B400E50456 /* AppDelegate.swift in Sources */,
 				A9D00C431EA86539008736C6 /* EditFoodCell.swift in Sources */,
+				A9CAE64A1EAA5B72008FD8DB /* Localisator.swift in Sources */,
 				A9A5DFA41EA610FB0044A075 /* Area.swift in Sources */,
 				A9A5DFA81EA66C260044A075 /* Table.swift in Sources */,
 				A9A5DF931EA49E080044A075 /* ChooseFoodViewController.swift in Sources */,

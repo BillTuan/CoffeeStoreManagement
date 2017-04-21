@@ -25,9 +25,9 @@ class AreaTableViewController: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem()
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
         
-        self.tabBarItem.title = NSLocalizedString("BarItem1", comment: "get bar item title")
-        self.navigationItem.title = NSLocalizedString("Area", comment: "area")
         database = DB.openDatabase()
         DB.createAreaTable(database: database)
         DB.createTableTable(database: database)
@@ -35,14 +35,6 @@ class AreaTableViewController: UITableViewController {
         DB.createTableFood(database: database)
         DB.createTableBill(database: database)
         DB.createTableBillInfo(database: database)
- //       Areas = DBArea.loadArea(database: database)
-//        var Tables = [Table]()
-//        Tables = DBTable.getTableWithIDArea(database: database, idArea: 1)
-//        print(Tables[0].name)
- //       let _ = DBCategory.insertCategory(database: database, Category: Category(idCategory: 0, name: "Thuc an"))
-   //    DBFood.deleteFood(database: database, id: 3)
-   //     DBCategory.deleteCategory(database: database, id: 2)
-    //    DBTable.deleteTable(database: database, id: 7)
 
     }
 
@@ -82,6 +74,15 @@ class AreaTableViewController: UITableViewController {
             let target = des.topViewController as! TableViewController
             target.idArea = Areas[(id?.row)!].idArea
         }
+    }
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        self.tabBarItem.title = Localization("BarItem1")
+        self.navigationItem.title = Localization("Area")
     }
 
 }

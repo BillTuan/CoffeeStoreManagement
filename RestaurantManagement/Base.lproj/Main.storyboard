@@ -183,22 +183,14 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" hasAttributedTitle="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DgX-pl-bK1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DgX-pl-bK1">
                                 <rect key="frame" x="0.0" y="99" width="320" height="30"/>
                                 <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="x6b-rq-CDS"/>
                                 </constraints>
-                                <state key="normal">
-                                    <attributedString key="attributedTitle">
-                                        <fragment content="Edit store">
-                                            <attributes>
-                                                <font key="NSFont" metaFont="system" size="15"/>
-                                                <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
-                                            </attributes>
-                                        </fragment>
-                                    </attributedString>
-                                </state>
+                                <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="15"/>
+                                <state key="normal" title="Edit store"/>
                                 <connections>
                                     <segue destination="opC-nd-32K" kind="show" id="Pm4-7I-aLM"/>
                                 </connections>
@@ -242,6 +234,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="siL-tc-1tt"/>
                     <connections>
+                        <outlet property="currentLan" destination="j3s-Lo-NB1" id="Gp8-uJ-qnU"/>
                         <outlet property="editButton" destination="DgX-pl-bK1" id="oh9-GL-1B9"/>
                         <outlet property="editLabel" destination="PkK-WS-hBP" id="3Xu-qO-soE"/>
                         <outlet property="languageButton" destination="j3s-Lo-NB1" id="4sI-zt-ZjQ"/>

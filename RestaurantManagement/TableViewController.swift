@@ -13,6 +13,9 @@ class TableViewController: UIViewController, UICollectionViewDelegate, UICollect
     
     //MARK: *** UIVariables
     var idArea: Int?
+    var message = ""
+    var title1 = ""
+    var cancel = ""
     //MARK: *** Data Model
     var database : OpaquePointer?
     var Tables = [Table]()
@@ -33,8 +36,9 @@ class TableViewController: UIViewController, UICollectionViewDelegate, UICollect
         TableCollectionView.delegate = self
         TableCollectionView.dataSource = self
         
-        backButton.title = NSLocalizedString("Back", comment: "Back")
-        self.navigationItem.title = NSLocalizedString("Tables", comment: "")
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
+
         database = DB.openDatabase()
         Tables = DBTable.getTableWithIDArea(database: database, idArea: idArea!)
     }
@@ -76,10 +80,9 @@ class TableViewController: UIViewController, UICollectionViewDelegate, UICollect
         detailView.idTable = self.Tables[indexPath.row].idTable!
         if self.Tables[indexPath.row].status! == 0
         {
-            let message = NSLocalizedString("MessageAlertTable", comment: "")
-            let title = NSLocalizedString("TittleAlertTable", comment: "")
+
             let actionAlert = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
-            actionAlert.addAction(UIAlertAction(title: title, style: .default, handler: { (UIAlertAction) in
+            actionAlert.addAction(UIAlertAction(title: title1, style: .default, handler: { (UIAlertAction) in
                 item?.layer.borderWidth = 5
                 item?.layer.borderColor = UIColor.blue.cgColor
                 self.addNewBill(idTable: self.Tables[indexPath.row].idTable!)
@@ -88,7 +91,6 @@ class TableViewController: UIViewController, UICollectionViewDelegate, UICollect
                 self.navigationController?.pushViewController(detailView, animated: true)
 
             }))
-            let cancel = NSLocalizedString("AlertCancel", comment: "")
             actionAlert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: nil))
             self.present(actionAlert, animated: true, completion: nil)
         }
@@ -108,4 +110,16 @@ class TableViewController: UIViewController, UICollectionViewDelegate, UICollect
         if DBBill.insertBill(database: database, Bill: newBill) {}
     }
     
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        backButton.title = Localization("Back")
+        self.navigationItem.title = Localization("Tables")
+        message = Localization("MessageAlertTable")
+        title1 = Localization("TittleAlertTable")
+        cancel = Localization("AlertCancel")
+    }
 }

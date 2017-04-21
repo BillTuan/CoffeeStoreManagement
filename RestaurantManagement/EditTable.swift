@@ -12,6 +12,9 @@ class EditTable: UITableViewController {
     
     //MARK: - Data model
     var Tables = [Table]()
+    var name = ""
+    var detail = ""
+    var area1 = ""
     //MARK: - UIVariables
     var database: OpaquePointer?
     //MARK: - UIFunction
@@ -23,7 +26,8 @@ class EditTable: UITableViewController {
         
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.title = NSLocalizedString("EditTable", comment: "")
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
         database = DB.openDatabase()
         Tables = DBTable.loadTable(database: database)
     }
@@ -51,9 +55,9 @@ class EditTable: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "editTable_cell", for: indexPath) as! EditTableCell
         
         // Configure the cell...
-        cell.name.text = NSLocalizedString("Name", comment: "")
-        cell.area.text = NSLocalizedString("Area", comment: "")
-        cell.detail.text = NSLocalizedString("Detail", comment: "")
+        cell.name.text = name
+        cell.area.text = area1
+        cell.detail.text = detail
         cell.nameLabel.text = Tables[indexPath.row].name
         let area = DBArea.selectAreaWithID(database: database, id: Tables[indexPath.row].area!)
         cell.areaLabel.text = area[0].name
@@ -79,5 +83,18 @@ class EditTable: UITableViewController {
             Tables.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        self.navigationItem.title = Localization("EditTable")
+        name = Localization("Name")
+        area1 = Localization("Area")
+        detail = Localization("Detail")
+
     }
 }

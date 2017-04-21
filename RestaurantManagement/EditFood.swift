@@ -14,7 +14,9 @@ class EditFood: UITableViewController {
     var Foods = [Food]()
     //MARK: - UIVariables
     var database: OpaquePointer?
-    
+    var name = ""
+    var category1 = ""
+    var price = ""
     //MARK: - UIFunction
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +26,9 @@ class EditFood: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
          self.navigationItem.rightBarButtonItem = self.editButtonItem
-        self.navigationItem.title = NSLocalizedString("EditFood", comment: "")
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
+        
         database = DB.openDatabase()
         Foods = DBFood.loadFood(database: database)
         
@@ -52,13 +56,13 @@ class EditFood: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "editFood_cell", for: indexPath) as! EditFoodCell
 
         // Configure the cell...
-        cell.name.text = NSLocalizedString("Name", comment: "")
-        cell.category.text = NSLocalizedString("Category", comment: "")
-        cell.price.text = NSLocalizedString("Price", comment: "")
+        cell.name.text = name
+        cell.category.text = category1
+        cell.price.text = price
         let category = DBCategory.getCategoryWithID(database: database, id: Foods[indexPath.row].category!)
         cell.nameLabel.text = Foods[indexPath.row].name
         cell.categoryLabel.text = category[0].name
-        cell.priceLabel.text = String(describing: Foods[indexPath.row].price!)
+        cell.priceLabel.text = Foods[indexPath.row].price!.toCurrency()
         cell.foodImageView.imageFromAssetURL(assetURL: NSURL(string: Foods[indexPath.row].image!)!)
         return cell
     }
@@ -86,6 +90,18 @@ class EditFood: UITableViewController {
             Foods.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
+    }
+    
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        self.navigationItem.title = Localization("EditFood")
+        name = Localization("Name")
+        category1 = Localization("Category")
+        price = Localization("Price")
     }
     
 }

@@ -9,10 +9,12 @@
 import UIKit
 
 class SettingViewController: UIViewController {
-    
+    //MARK: - Variable
+    let arrayLanguages = Localisator.sharedInstance.getArrayAvailableLanguages()
     //MARK: - Elements
     @IBOutlet weak var editLabel: UILabel!
     @IBOutlet weak var languageButton: UIButton!
+    @IBOutlet weak var currentLan: UIButton!
     
     @IBOutlet weak var languageLabel: UILabel!
     @IBOutlet weak var editButton: UIButton!
@@ -23,9 +25,11 @@ class SettingViewController: UIViewController {
         let actionAlert = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
         actionAlert.addAction(UIAlertAction(title: "English", style: .default, handler: { (UIAlertAction) in
             self.languageButton.setTitle("English", for: .normal)
+            if SetLanguage(self.arrayLanguages[1]){};
         }))
         actionAlert.addAction(UIAlertAction(title: "Tiếng Việt", style: .default, handler: { (UIAlertAction) in
             self.languageButton.setTitle("Tiếng Việt", for: .normal)
+            if SetLanguage(self.arrayLanguages[2]){}
         }))
         let cancel = NSLocalizedString("AlertCancel", comment: "")
         actionAlert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: nil))
@@ -34,20 +38,29 @@ class SettingViewController: UIViewController {
     //MARK: - Function
     override func viewDidLoad() {
         super.viewDidLoad()
-        self.navigationItem.title = NSLocalizedString("Setting", comment: "")
-        editLabel.text = NSLocalizedString("Edit", comment: "")
-        languageLabel.text = NSLocalizedString("Language", comment: "")
-        editButton.setTitle(NSLocalizedString("EditStore", comment: ""), for: .normal)
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
+        Localisator.sharedInstance.saveInUserDefaults = true
         // Do any additional setup after loading the view.
     }
-
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
  
     }
-    
-
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        self.title = Localization("BarItem4")
+        currentLan.setTitle(Localization("currentLang"), for: .normal)
+        self.navigationItem.title = Localization("Setting")
+        editLabel.text = Localization("EditStore")
+        languageLabel.text = Localization("Language")
+        editButton.setTitle(Localization("EditStore"), for: .normal)
+    }
     /*
     // MARK: - Navigation
 

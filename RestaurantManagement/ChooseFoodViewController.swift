@@ -13,6 +13,11 @@ class ChooseFoodViewController: UIViewController, UISearchBarDelegate, UITableVi
     //MARK: *** UIVariables
     var amountFood = ""
     var idBill :Int?
+    var foodID = ""
+    var foodName = ""
+    var price = ""
+    var chooseFood = ""
+    var amountOfFood = ""
     //MARK: *** Data Model
     var database : OpaquePointer?
     var Foods = [Food]()
@@ -29,6 +34,8 @@ class ChooseFoodViewController: UIViewController, UISearchBarDelegate, UITableVi
         loadDataTable()
         self.foodTableView.delegate = self
         self.foodTableView.dataSource = self
+        NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
+        configureViewFromLocalisation()
         setUpSearchBar()
         database = DB.openDatabase()
         tempFoods = DBFood.loadFood(database: database)
@@ -53,7 +60,7 @@ class ChooseFoodViewController: UIViewController, UISearchBarDelegate, UITableVi
     {
         let searchFoodBar = UISearchBar(frame: CGRect(x: 0, y: 0, width: UIScreen.main.bounds.width, height: 0))
         searchFoodBar.showsScopeBar = true
-        searchFoodBar.scopeButtonTitles = [NSLocalizedString("FoodID", comment: ""), NSLocalizedString("FoodName", comment: ""),NSLocalizedString("Price", comment: "")]
+        searchFoodBar.scopeButtonTitles = [foodID, foodName, price]
         searchFoodBar.selectedScopeButtonIndex = 0
         searchFoodBar.delegate = self
         self.foodTableView.tableHeaderView = searchFoodBar
@@ -111,17 +118,17 @@ class ChooseFoodViewController: UIViewController, UISearchBarDelegate, UITableVi
 
         cell.foodID.text = String(describing: Foods[indexPath.row].idFood!)
         cell.nameFoodLabel.text = Foods[indexPath.row].name
-        cell.priceFoodLabel.text = String(describing: Foods[indexPath.row].price!)
+        cell.priceFoodLabel.text = Foods[indexPath.row].price!.toCurrency()
         cell.foodImageView.imageFromAssetURL(assetURL: NSURL(string: Foods[indexPath.row].image!)!)
         return cell
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
-        let alert = UIAlertController(title: Foods[indexPath.row].name, message: NSLocalizedString("AlertChooseAmountFood", comment: ""), preferredStyle: .alert)
+        let alert = UIAlertController(title: Foods[indexPath.row].name, message: chooseFood, preferredStyle: .alert)
         
         alert.addTextField(configurationHandler: {(textfield: UITextField) in
-            textfield.placeholder = NSLocalizedString("AmountOfFood", comment: "")
+            textfield.placeholder = self.amountOfFood
             textfield.keyboardType = .numberPad
         })
         
@@ -140,6 +147,19 @@ class ChooseFoodViewController: UIViewController, UISearchBarDelegate, UITableVi
         }))
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
         self.present(alert, animated: true, completion: nil)
+    }
+    
+    func receiveLanguageChangedNotification(notification:NSNotification) {
+        if notification.name == kNotificationLanguageChanged {
+            configureViewFromLocalisation()
+        }
+    }
+    func configureViewFromLocalisation() {
+        foodID = Localization("ItemID")
+        foodName = Localization("Name")
+        price = Localization("Price")
+        chooseFood = Localization("AlertChooseAmountFood")
+        amountOfFood = Localization("AmountOfFood")
     }
     
 }
