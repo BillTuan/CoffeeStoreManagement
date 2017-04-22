@@ -30,6 +30,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var whichPicker : Int?
     var foodCategory = ""
     var storeCurrency = ""
+    var symbolCurrency = ""
     
     //MARK: *** UIElements
     //MARK: Label
@@ -137,6 +138,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         tableAreaText.addTarget(self, action: #selector(pickArea), for: .editingDidBegin)
         itemCategoryText.addTarget(self, action: #selector(pickCategory), for: .editingDidBegin)
         storeCurrencyText.addTarget(self, action: #selector(pickCurrency), for: .editingDidBegin)
+        storeNameText.addTarget(self, action: #selector(saveName), for: .editingDidEnd)
+        storeAdrressText.addTarget(self, action: #selector(saveAddress), for: .editingDidEnd)
     }
     
     func pickArea(_ sender: Any)
@@ -160,6 +163,16 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     func pickCurrency(_ sender: Any)
     {
         createCurrencyPicker()
+    }
+    
+    func saveName(_ sender : Any)
+    {
+        UserDefaults.standard.set(storeNameText.text!, forKey: "Name")
+    }
+    
+    func saveAddress(_ sender: Any)
+    {
+        UserDefaults.standard.set(storeAdrressText.text!, forKey: "Address")
     }
     func setLabelView()
     {
@@ -186,7 +199,17 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         editAreaButton.setTitle(Localization("Edit"), for: .normal)
         editTableButton.setTitle(Localization("Edit"), for: .normal)
         editItemButton.setTitle(Localization("Edit"), for: .normal)
-        storeCurrencyText.text = UserDefaults.standard.string(forKey: "Currency")
+        storeCurrencyText.text = UserDefaults.standard.string(forKey: "Currency")! + "|" + UserDefaults.standard.string(forKey: "Symbol")!
+        if UserDefaults.standard.string(forKey: "Name") != nil
+        {
+                storeNameText.text = UserDefaults.standard.string(forKey: "Name")!
+        }
+        if UserDefaults.standard.string(forKey: "Address") != nil
+        {
+
+                storeAdrressText.text = UserDefaults.standard.string(forKey: "Address")!
+
+        }
     }
     
     func addTapGestureImageView()
@@ -333,8 +356,11 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     
     func donePressedCurrency(){
-        storeCurrencyText.text = storeCurrency
+        
+        symbolCurrency = Locale(identifier: Locale.identifier(fromComponents: [NSLocale.Key.currencyCode.rawValue : storeCurrency])).currencySymbol!
+        storeCurrencyText.text = storeCurrency + "|" + symbolCurrency
         UserDefaults.standard.set(storeCurrency, forKey: "Currency")
+        UserDefaults.standard.set(symbolCurrency, forKey: "Symbol")
         self.view.endEditing(true)
     }
 
@@ -395,7 +421,8 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             return Categorys[row].name
         }
         else{
-            return currency[row]
+            symbolCurrency = Locale(identifier: Locale.identifier(fromComponents: [NSLocale.Key.currencyCode.rawValue : currency[row]])).currencySymbol!
+            return currency[row] + "|" + symbolCurrency
         }
     }
     

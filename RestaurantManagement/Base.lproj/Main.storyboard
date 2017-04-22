@@ -157,6 +157,9 @@
                         </connections>
                     </tableView>
                     <tabBarItem key="tabBarItem" title="Tables" image="shop.png" selectedImage="shop.png" id="O4W-bz-IBg"/>
+                    <connections>
+                        <outlet property="areaTitle" destination="Ldo-6y-wIh" id="jhV-lO-Vzr"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w1l-OJ-7Yy" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

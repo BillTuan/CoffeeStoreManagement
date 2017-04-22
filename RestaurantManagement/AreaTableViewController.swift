@@ -12,7 +12,7 @@ class AreaTableViewController: UITableViewController {
 
     //MARK: *** UIVariables
     var database : OpaquePointer?
-    
+    @IBOutlet weak var areaTitle: UINavigationItem!
     //MARK: *** Data Model
     var Areas = [Area]()
 
@@ -82,7 +82,7 @@ class AreaTableViewController: UITableViewController {
     }
     func configureViewFromLocalisation() {
         self.tabBarItem.title = Localization("BarItem1")
-        self.navigationItem.title = Localization("Area")
+        self.areaTitle.title = Localization("Area")
     }
 
 }
