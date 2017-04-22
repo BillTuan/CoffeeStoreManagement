@@ -43,6 +43,7 @@
 		A9A9A33D1EA8564200757477 /* EditTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A9A33C1EA8564200757477 /* EditTable.swift */; };
 		A9A9A33F1EA8566500757477 /* EditTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A9A33E1EA8566500757477 /* EditTableCell.swift */; };
 		A9CAE64A1EAA5B72008FD8DB /* Localisator.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9CAE6491EAA5B72008FD8DB /* Localisator.swift */; };
+		A9CAE64C1EAAEE00008FD8DB /* open.png in Resources */ = {isa = PBXBuildFile; fileRef = A9CAE64B1EAAEE00008FD8DB /* open.png */; };
 		A9D00C411EA86520008736C6 /* EditFood.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C401EA86520008736C6 /* EditFood.swift */; };
 		A9D00C431EA86539008736C6 /* EditFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C421EA86539008736C6 /* EditFoodCell.swift */; };
 		A9D00C451EA873B1008736C6 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C441EA873B1008736C6 /* Bill.swift */; };
@@ -92,6 +93,7 @@
 		A9A9A33C1EA8564200757477 /* EditTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTable.swift; sourceTree = "<group>"; };
 		A9A9A33E1EA8566500757477 /* EditTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditTableCell.swift; sourceTree = "<group>"; };
 		A9CAE6491EAA5B72008FD8DB /* Localisator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Localisator.swift; sourceTree = "<group>"; };
+		A9CAE64B1EAAEE00008FD8DB /* open.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = open.png; sourceTree = "<group>"; };
 		A9D00C401EA86520008736C6 /* EditFood.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFood.swift; sourceTree = "<group>"; };
 		A9D00C421EA86539008736C6 /* EditFoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFoodCell.swift; sourceTree = "<group>"; };
 		A9D00C441EA873B1008736C6 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
@@ -198,6 +200,7 @@
 		A9103A971EA3118A00E50456 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				A9CAE64B1EAAEE00008FD8DB /* open.png */,
 				A9103AC01EA48FA100E50456 /* bread.jpg */,
 				A9103ABA1EA3993500E50456 /* table.jpg */,
 				A9103AB81EA3502000E50456 /* Floor.jpeg */,
@@ -312,6 +315,7 @@
 				A9103AA01EA3138000E50456 /* Menu.png in Resources */,
 				A9103AB91EA3502000E50456 /* Floor.jpeg in Resources */,
 				A9103AC11EA48FA100E50456 /* bread.jpg in Resources */,
+				A9CAE64C1EAAEE00008FD8DB /* open.png in Resources */,
 				A9103ABB1EA3993500E50456 /* table.jpg in Resources */,
 				A9103A7B1EA303B400E50456 /* LaunchScreen.storyboard in Resources */,
 				A9103A921EA30A6F00E50456 /* Localizable.strings in Resources */,

@@ -11,6 +11,8 @@ import UIKit
 class SettingViewController: UIViewController {
     //MARK: - Variable
     let arrayLanguages = Localisator.sharedInstance.getArrayAvailableLanguages()
+    var cancel1 = ""
+    var message = ""
     //MARK: - Elements
     @IBOutlet weak var editLabel: UILabel!
     @IBOutlet weak var languageButton: UIButton!
@@ -21,7 +23,7 @@ class SettingViewController: UIViewController {
     
     //MARK: - Events
     @IBAction func languageButtonTapped(_ sender: Any) {
-        let message = NSLocalizedString("ChooseLaguage", comment: "")
+        
         let actionAlert = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
         actionAlert.addAction(UIAlertAction(title: "English", style: .default, handler: { (UIAlertAction) in
             self.languageButton.setTitle("English", for: .normal)
@@ -31,7 +33,7 @@ class SettingViewController: UIViewController {
             self.languageButton.setTitle("Tiếng Việt", for: .normal)
             if SetLanguage(self.arrayLanguages[2]){}
         }))
-        let cancel = NSLocalizedString("AlertCancel", comment: "")
+        let cancel = cancel1
         actionAlert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: nil))
         self.present(actionAlert, animated: true, completion: nil)
     }
@@ -60,6 +62,8 @@ class SettingViewController: UIViewController {
         editLabel.text = Localization("EditStore")
         languageLabel.text = Localization("Language")
         editButton.setTitle(Localization("EditStore"), for: .normal)
+        cancel1 = Localization("AlertCancel")
+        message = Localization("ChooseLaguage")
     }
     /*
     // MARK: - Navigation

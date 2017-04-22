@@ -13,7 +13,7 @@
 "Back" = "Trở lại";
 "Area" = "Khu vực";
 "Tables" = "Bàn";
-"MessageAlertTable" = "Bạn muốc làm gì tiếp?";
+"MessageAlertTable" = "Bạn muốn làm gì tiếp?";
 "TittleAlertTable" = "Chọn bàn này";
 "AlertCancel" = "Huỷ";
 "TotalMoney" = "Tổng tiền";
@@ -35,7 +35,7 @@
 "Address" = "Địa chỉ";
 "Currency" = "Tiền tệ";
 "StoreArea" = "Khu vực quán";
-"Detail" = "Chỉ tiết";
+"Detail" = "Chi tiết";
 "StoreTable" = "Bàn của quán";
 "MenuItem" = "Thực đơn món";
 "Add" = "Thêm";

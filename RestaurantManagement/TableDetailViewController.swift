@@ -86,7 +86,7 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
             cell.FoodImageView.imageFromAssetURL(assetURL: NSURL(string: food[0].image!)!)
             cell.amountFoodLabel.text = String(describing: BillInfos[indexPath.row].amountFood!)
             cell.nameFoodLabel.text = food[0].name
-            cell.priceFoodLabel.text = String(describing: food[0].price!)
+            cell.priceFoodLabel.text = food[0].price!.toCurrency()
         }
         return cell
     }
@@ -107,7 +107,7 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
         Bills[0].totalPrice = totalMoney
         if DBBill.updateBill(database: database, Bill: Bills[0]){}
-        self.moneyTableLabel.text = String(totalMoney)
+        self.moneyTableLabel.text = totalMoney.toCurrency()
     }
     
     func receiveLanguageChangedNotification(notification:NSNotification) {

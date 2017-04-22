@@ -50,7 +50,8 @@ extension Int{
         currencyFormatter.usesGroupingSeparator = true
         currencyFormatter.numberStyle = .currency
         // localize to your grouping and decimal separator
-        currencyFormatter.locale = Locale(identifier: "vi-vn")
+        let currency = UserDefaults.standard.string(forKey: "Currency")
+        currencyFormatter.locale = Locale(identifier: Locale.identifier(fromComponents: [NSLocale.Key.currencyCode.rawValue: currency!]))
         let priceString = currencyFormatter.string(from: self as NSNumber)
         return priceString!
     }

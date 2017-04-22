@@ -254,11 +254,11 @@
                         <viewControllerLayoutGuide type="bottom" id="JCl-13-Cy4"/>
                     </layoutGuides>
                     <view key="view" contentMode="scaleToFill" id="qr2-Cv-8QK">
-                        <rect key="frame" x="0.0" y="0.0" width="320" height="1000"/>
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="900"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WGy-iq-N5s">
-                                <rect key="frame" x="0.0" y="64" width="320" height="887"/>
+                                <rect key="frame" x="0.0" y="64" width="320" height="787"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gOk-EJ-IG8">
                                         <rect key="frame" x="0.0" y="-63" width="320" height="850"/>
@@ -652,17 +652,6 @@
                                                     <segue destination="vyl-YO-ygv" kind="show" id="edc-kO-rPi"/>
                                                 </connections>
                                             </button>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jp1-W6-xaO">
-                                                <rect key="frame" x="80" y="786" width="160" height="30"/>
-                                                <color key="backgroundColor" red="1" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="30" id="gge-VA-79Q"/>
-                                                    <constraint firstAttribute="width" constant="160" id="zL6-Gu-ubz"/>
-                                                </constraints>
-                                                <state key="normal" title="Save content">
-                                                    <color key="titleColor" red="0.1215686277" green="0.1294117719" blue="0.1411764771" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                </state>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                         <constraints>
@@ -694,13 +683,11 @@
                                             <constraint firstAttribute="trailing" secondItem="Sym-6w-Vmr" secondAttribute="trailing" id="ISP-Gi-ZZa"/>
                                             <constraint firstItem="v4M-uG-m3I" firstAttribute="leading" secondItem="UkJ-my-kmQ" secondAttribute="trailing" constant="1" id="Ilh-EO-VB3"/>
                                             <constraint firstAttribute="trailing" secondItem="UOg-1x-7rU" secondAttribute="trailing" id="Jf8-Kd-gtx"/>
-                                            <constraint firstItem="Jp1-W6-xaO" firstAttribute="top" secondItem="o90-Fx-Fqq" secondAttribute="bottom" constant="50" id="JgR-8z-EB5"/>
                                             <constraint firstItem="72K-tl-2fB" firstAttribute="top" secondItem="Sym-6w-Vmr" secondAttribute="bottom" constant="1" id="KGv-MI-XIO"/>
                                             <constraint firstItem="f1L-13-BGQ" firstAttribute="leading" secondItem="gOk-EJ-IG8" secondAttribute="leading" id="LT4-3n-oiT"/>
                                             <constraint firstItem="hq6-uu-9l8" firstAttribute="leading" secondItem="fUT-GB-p5Y" secondAttribute="trailing" constant="1" id="Lvj-Z4-YSa"/>
                                             <constraint firstAttribute="trailing" secondItem="iCJ-4A-q6g" secondAttribute="trailing" id="MDV-za-BIk"/>
                                             <constraint firstItem="utH-pv-ySq" firstAttribute="top" secondItem="7iu-nu-grI" secondAttribute="bottom" constant="5" id="MsJ-Ax-mYv"/>
-                                            <constraint firstItem="Jp1-W6-xaO" firstAttribute="centerX" secondItem="gOk-EJ-IG8" secondAttribute="centerX" id="O1g-FM-zVY"/>
                                             <constraint firstItem="o90-Fx-Fqq" firstAttribute="leading" secondItem="Bcl-Tk-P5K" secondAttribute="trailing" constant="1" id="OTf-tW-8av"/>
                                             <constraint firstItem="IMd-ym-Lsx" firstAttribute="leading" secondItem="gOk-EJ-IG8" secondAttribute="leading" id="OUv-cW-6bq"/>
                                             <constraint firstItem="SLb-oh-RLg" firstAttribute="top" secondItem="bnC-1R-6iW" secondAttribute="bottom" constant="1" id="P8r-6L-pJg"/>
@@ -784,13 +771,19 @@
                         </constraints>
                     </view>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="320" height="1000"/>
+                    <size key="freeformSize" width="320" height="900"/>
                     <connections>
+                        <outlet property="addAreaButton" destination="SLb-oh-RLg" id="Tb8-Ko-5uq"/>
+                        <outlet property="addItemButton" destination="Bcl-Tk-P5K" id="wKj-a3-4g0"/>
+                        <outlet property="addTableButton" destination="WgV-fM-xwA" id="O0C-7j-cHF"/>
                         <outlet property="areaDetailLabel" destination="0Rd-aU-2WQ" id="Wxg-Ck-wm7"/>
                         <outlet property="areaDetailText" destination="bnC-1R-6iW" id="s3E-3n-2Hm"/>
                         <outlet property="areaImageView" destination="W3V-CR-4q0" id="0p6-ya-gV0"/>
                         <outlet property="areaNameLabel" destination="MwK-yV-gr8" id="glG-to-LX9"/>
                         <outlet property="areaNameText" destination="1lx-mD-PGd" id="jdt-VI-FIR"/>
+                        <outlet property="editAreaButton" destination="iCJ-4A-q6g" id="0nm-bC-PuC"/>
+                        <outlet property="editItemButton" destination="o90-Fx-Fqq" id="qJG-xi-VQl"/>
+                        <outlet property="editTableButton" destination="sTi-Zu-E7j" id="xfD-h3-nOK"/>
                         <outlet property="itemCategoryLabel" destination="KNf-DI-wZn" id="98A-mi-bj0"/>
                         <outlet property="itemCategoryText" destination="72K-tl-2fB" id="VyM-4m-z2P"/>
                         <outlet property="itemIDLabel" destination="qYF-hM-20g" id="O8c-IP-ny6"/>
@@ -801,7 +794,6 @@
                         <outlet property="itemPriceLabel" destination="PHf-eG-1ey" id="VUG-0w-GLb"/>
                         <outlet property="itemPriceText" destination="Sym-6w-Vmr" id="4ug-DG-Ao0"/>
                         <outlet property="menuItemLabel" destination="IMd-ym-Lsx" id="fK1-X7-MeL"/>
-                        <outlet property="saveContentTapped" destination="Jp1-W6-xaO" id="9UI-J4-uQ9"/>
                         <outlet property="storeAdressLabel" destination="lXa-cV-krM" id="5Bk-Vj-wAS"/>
                         <outlet property="storeAdrressText" destination="LnE-Kz-N3l" id="tYh-D6-sDL"/>
                         <outlet property="storeAreaLabel" destination="YKH-PZ-a0P" id="mfF-46-7DH"/>

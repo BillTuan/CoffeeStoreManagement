@@ -14,7 +14,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var Areas = [Area]()
     var Categorys = [Category]()
     var Foods = [Food]()
-    
+    var currency = Locale.commonISOCurrencyCodes
     //MARK: *** UIVariables
     var database: OpaquePointer?
     var areaImage: NSURL?
@@ -23,11 +23,13 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var whichImage = 1
     var areaPicker = UIPickerView()
     var categoryPicker = UIPickerView()
+    var currencyPicker = UIPickerView()
     var tableArea = ""
     var idArea : Int?
     var idCategory: Int?
     var whichPicker : Int?
     var foodCategory = ""
+    var storeCurrency = ""
     
     //MARK: *** UIElements
     //MARK: Label
@@ -64,6 +66,12 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     @IBOutlet weak var areaImageView: UIImageView!
     @IBOutlet weak var tableImageView: UIImageView!
     @IBOutlet weak var itemImageView: UIImageView!
+    @IBOutlet weak var addAreaButton: UIButton!
+    @IBOutlet weak var editAreaButton: UIButton!
+    @IBOutlet weak var addTableButton: UIButton!
+    @IBOutlet weak var editTableButton: UIButton!
+    @IBOutlet weak var addItemButton: UIButton!
+    @IBOutlet weak var editItemButton: UIButton!
     
     //MARK: *** UIEvents
     @IBAction func addAreaTapped(_ sender: Any) {
@@ -128,6 +136,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         database = DB.openDatabase()
         tableAreaText.addTarget(self, action: #selector(pickArea), for: .editingDidBegin)
         itemCategoryText.addTarget(self, action: #selector(pickCategory), for: .editingDidBegin)
+        storeCurrencyText.addTarget(self, action: #selector(pickCurrency), for: .editingDidBegin)
     }
     
     func pickArea(_ sender: Any)
@@ -148,7 +157,10 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         Categorys = DBCategory.loadCategory(database: database)
         createCategoryPicker()
     }
-    
+    func pickCurrency(_ sender: Any)
+    {
+        createCurrencyPicker()
+    }
     func setLabelView()
     {
         self.navigationItem.title = Localization("EditStore")
@@ -168,6 +180,13 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         itemNameLabel.text = Localization("ItemName")
         itemPriceLabel.text = Localization("Price")
         itemCategoryLabel.text = Localization("Category")
+        addAreaButton.setTitle(Localization("Add"), for: .normal)
+        addTableButton.setTitle(Localization("Add"), for: .normal)
+        addItemButton.setTitle(Localization("Add"), for: .normal)
+        editAreaButton.setTitle(Localization("Edit"), for: .normal)
+        editTableButton.setTitle(Localization("Edit"), for: .normal)
+        editItemButton.setTitle(Localization("Edit"), for: .normal)
+        storeCurrencyText.text = UserDefaults.standard.string(forKey: "Currency")
     }
     
     func addTapGestureImageView()
@@ -236,7 +255,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     //MARK: *** PickerView
     
-    public func createAreaPicker()
+    func createAreaPicker()
     {
         // Create a tool bar
         let toolbar = UIToolbar()
@@ -258,7 +277,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         
     }
     
-    public func createCategoryPicker()
+    func createCategoryPicker()
     {
         // Create a tool bar
         let toolbar = UIToolbar()
@@ -284,6 +303,24 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         
     }
+    func createCurrencyPicker()
+    {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // Create a button done
+        let doneButton = UIBarButtonItem(barButtonSystemItem: .done, target: nil, action: #selector(donePressedCurrency))
+        toolbar.setItems([doneButton], animated: false)
+        
+        //Picker view for class
+        storeCurrencyText.inputAccessoryView = toolbar
+        storeCurrencyText.inputView = currencyPicker
+        
+        whichPicker = 3
+        currencyPicker.delegate = self
+        currencyPicker.dataSource = self
+        storeCurrency = currency[0]
+    }
     
     func donePressedArea(){
         tableAreaText.text = tableArea
@@ -294,6 +331,13 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         itemCategoryText.text = foodCategory
         self.view.endEditing(true)
     }
+    
+    func donePressedCurrency(){
+        storeCurrencyText.text = storeCurrency
+        UserDefaults.standard.set(storeCurrency, forKey: "Currency")
+        self.view.endEditing(true)
+    }
+
     
     func addPressedCategory(){
         let alert = UIAlertController(title: "", message: NSLocalizedString("AddNewCategory", comment: ""), preferredStyle: .alert)
@@ -331,9 +375,13 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         {
             return Areas.count
         }
-        else
+        else if whichPicker == 2
         {
             return Categorys.count
+        }
+        else
+        {
+            return currency.count
         }
     }
     
@@ -342,9 +390,12 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         {
             return Areas[row].name
         }
-        else
+        else if whichPicker == 2
         {
             return Categorys[row].name
+        }
+        else{
+            return currency[row]
         }
     }
     
@@ -354,12 +405,16 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
             tableArea = Areas[row].name!
             idArea = row + 1
         }
-        else
+        else if whichPicker == 2
         {
             if !Categorys.isEmpty {
                 foodCategory = Categorys[row].name!
                 idCategory = row + 1
             }
+        }
+        else
+        {
+            storeCurrency = currency[row]
         }
     }
     func receiveLanguageChangedNotification(notification:NSNotification) {
