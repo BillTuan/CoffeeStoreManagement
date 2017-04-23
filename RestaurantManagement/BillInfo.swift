@@ -34,10 +34,10 @@ class DBBillInfo{
                 var temp1 = sqlite3_column_int(statement, 0)
                 let id = Int(exactly: temp1)
                 
-                temp1 = sqlite3_column_int(statement, 3)
+                temp1 = sqlite3_column_int(statement, 1)
                 let amountFood = Int(exactly: temp1)
                 
-                temp1 = sqlite3_column_int(statement, 4)
+                temp1 = sqlite3_column_int(statement, 2)
                 let idFood = Int(exactly: temp1)
                 
                 

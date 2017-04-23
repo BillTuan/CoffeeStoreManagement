@@ -9,7 +9,7 @@
 "BarItem1" = "Bàn";
 "BarItem2" = "Doanh số";
 "BarItem3" = "Thực đơn";
-"BarItem4" = "Cái đặt";
+"BarItem4" = "Cài đặt";
 "Back" = "Trở lại";
 "Area" = "Khu vực";
 "Tables" = "Bàn";
@@ -50,3 +50,8 @@
 "DoYouWantPay" = "Bạn có muốn tính tiền cho bàn này";
 "currentLang" = "Tiếng Việt";
 "AddImage" = "Thêm ảnh";
+"Revenue" = "Doanh thu";
+"Today" = "Hôm nay";
+"Thismonth" = "Tháng nay";
+"Thisyear" = "Năm nay";
+"Amount" = "Số lượng";

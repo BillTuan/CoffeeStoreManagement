@@ -54,6 +54,7 @@
 		A9D00C431EA86539008736C6 /* EditFoodCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C421EA86539008736C6 /* EditFoodCell.swift */; };
 		A9D00C451EA873B1008736C6 /* Bill.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C441EA873B1008736C6 /* Bill.swift */; };
 		A9D00C471EA89465008736C6 /* BillInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9D00C461EA89465008736C6 /* BillInfo.swift */; };
+		A9F1A7441EACA06C0013BAD6 /* SaleViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1A7431EACA06C0013BAD6 /* SaleViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -110,6 +111,7 @@
 		A9D00C421EA86539008736C6 /* EditFoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFoodCell.swift; sourceTree = "<group>"; };
 		A9D00C441EA873B1008736C6 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		A9D00C461EA89465008736C6 /* BillInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillInfo.swift; sourceTree = "<group>"; };
+		A9F1A7431EACA06C0013BAD6 /* SaleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -159,7 +161,7 @@
 			isa = PBXGroup;
 			children = (
 				A9103A701EA303B400E50456 /* AppDelegate.swift */,
-				A9103AA41EA314AE00E50456 /* SaleController.swift */,
+				A9F1A7421EACA0310013BAD6 /* Sale_Tab */,
 				A9CAE64D1EAB4F24008FD8DB /* Menu_Tab */,
 				A9A5DF9C1EA50D7F0044A075 /* Setting_Tab */,
 				A9A5DF911EA49A390044A075 /* Table_Tab */,
@@ -276,6 +278,15 @@
 			name = Menu_Tab;
 			sourceTree = "<group>";
 		};
+		A9F1A7421EACA0310013BAD6 /* Sale_Tab */ = {
+			isa = PBXGroup;
+			children = (
+				A9103AA41EA314AE00E50456 /* SaleController.swift */,
+				A9F1A7431EACA06C0013BAD6 /* SaleViewCell.swift */,
+			);
+			name = Sale_Tab;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -358,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A9F1A7441EACA06C0013BAD6 /* SaleViewCell.swift in Sources */,
 				A9A9A33F1EA8566500757477 /* EditTableCell.swift in Sources */,
 				A92026421EAC8CE60073CA7A /* AddFoodTable.swift in Sources */,
 				A9A5DF951EA49E670044A075 /* ChooseFoodTableViewCell.swift in Sources */,

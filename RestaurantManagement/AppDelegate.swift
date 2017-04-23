@@ -23,7 +23,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         let appearence = UINavigationBar.appearance()
         appearence.tintColor = UIColor.white
         appearence.barTintColor = UIColor.red
-
         return true
     }
     
