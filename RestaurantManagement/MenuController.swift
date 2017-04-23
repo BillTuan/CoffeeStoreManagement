@@ -146,9 +146,16 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
         cell.price.text = price
         cell.nameLabel.text = Foods[indexPath.section][indexPath.row].name!
         cell.priceLabel.text = Foods[indexPath.section][indexPath.row].price?.toCurrency()
+        cell.idLabel.text = String(Foods[indexPath.section][indexPath.row].idFood!)
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let storyb = UIStoryboard(name: "Main", bundle: nil)
+        let detailView = storyb.instantiateViewController(withIdentifier: "addFood") as! AddFoodTable
+        detailView.food = Foods[indexPath.section][indexPath.row]
+        self.navigationController?.pushViewController(detailView, animated: true)
+    }
     
     
     func receiveLanguageChangedNotification(notification:NSNotification) {

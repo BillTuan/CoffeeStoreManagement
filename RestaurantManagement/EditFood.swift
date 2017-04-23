@@ -34,11 +34,10 @@ class EditFood: UITableViewController {
         
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        Foods = DBFood.loadFood(database: database)
+        tableView.reloadData()
     }
-
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -91,7 +90,13 @@ class EditFood: UITableViewController {
             tableView.deleteRows(at: [indexPath], with: .fade)
         }
     }
-    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editFood"
+        {
+            let des = segue.destination as! EditInfoItem
+            des.food = Foods[(tableView.indexPathForSelectedRow?.row)!]
+        }
+    }
     func receiveLanguageChangedNotification(notification:NSNotification) {
         if notification.name == kNotificationLanguageChanged {
             configureViewFromLocalisation()

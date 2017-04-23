@@ -33,9 +33,9 @@ class EditAreaTableViewController: UITableViewController {
         Areas = DBArea.loadArea(database: database)
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    override func viewWillAppear(_ animated: Bool) {
+        Areas = DBArea.loadArea(database: database)
+        tableView.reloadData()
     }
 
     // MARK: - Table view data source
@@ -77,6 +77,15 @@ class EditAreaTableViewController: UITableViewController {
             Areas.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
 
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editArea"
+        {
+            let index = tableView.indexPathForSelectedRow
+            let des = segue.destination as! EditInfoArea
+            des.area = Areas[(index?.row)!]
         }
     }
     func receiveLanguageChangedNotification(notification:NSNotification) {

@@ -199,7 +199,9 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         editAreaButton.setTitle(Localization("Edit"), for: .normal)
         editTableButton.setTitle(Localization("Edit"), for: .normal)
         editItemButton.setTitle(Localization("Edit"), for: .normal)
-        storeCurrencyText.text = UserDefaults.standard.string(forKey: "Currency")! + "|" + UserDefaults.standard.string(forKey: "Symbol")!
+        if UserDefaults.standard.string(forKey: "Currency") != nil{
+            storeCurrencyText.text = UserDefaults.standard.string(forKey: "Currency")! + "|" + UserDefaults.standard.string(forKey: "Symbol")!
+        }
         if UserDefaults.standard.string(forKey: "Name") != nil
         {
                 storeNameText.text = UserDefaults.standard.string(forKey: "Name")!

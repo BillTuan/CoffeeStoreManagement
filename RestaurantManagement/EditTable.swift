@@ -32,10 +32,9 @@ class EditTable: UITableViewController {
         Tables = DBTable.loadTable(database: database)
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-        
+    override func viewWillAppear(_ animated: Bool) {
+        Tables = DBTable.loadTable(database: database)
+        tableView.reloadData()
     }
     
     // MARK: - Table view data source
@@ -82,6 +81,14 @@ class EditTable: UITableViewController {
             DBTable.deleteTable(database: database, id: Tables[indexPath.row].idTable!)
             Tables.remove(at: indexPath.row)
             tableView.deleteRows(at: [indexPath], with: .fade)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "editTable"
+        {
+            let des = segue.destination as! EditInfoTable
+            des.table = Tables[(tableView.indexPathForSelectedRow?.row)!]
         }
     }
     

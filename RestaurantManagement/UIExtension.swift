@@ -51,7 +51,13 @@ extension Int{
         currencyFormatter.numberStyle = .currency
         // localize to your grouping and decimal separator
         let currency = UserDefaults.standard.string(forKey: "Currency")
-        currencyFormatter.locale = Locale(identifier: Locale.identifier(fromComponents: [NSLocale.Key.currencyCode.rawValue: currency!]))
+        if  currency != nil
+         {
+            currencyFormatter.locale = Locale(identifier: Locale.identifier(fromComponents: [NSLocale.Key.currencyCode.rawValue: currency!]))
+        }
+        else{
+            currencyFormatter.locale = Locale.current
+        }
         let priceString = currencyFormatter.string(from: self as NSNumber)
         return priceString!
     }

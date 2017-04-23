@@ -164,4 +164,28 @@ class DBArea{
         return Areas
     }
     
+    static func updateArea(database: OpaquePointer?, Area: Area) -> Bool
+    {
+        let update = "UPDATE Area SET name = ?, image = ?, info = ? WHERE idArea = ?"
+        var statement : OpaquePointer?
+        if sqlite3_prepare_v2(database, update, -1, &statement, nil) == SQLITE_OK
+        {
+            sqlite3_bind_text(statement, 1, (Area.name! as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 2, (Area.image! as NSString).utf8String, -1, nil)
+            sqlite3_bind_text(statement, 3, (Area.detail! as NSString).utf8String, -1, nil)
+            sqlite3_bind_int(statement, 4, Int32(Area.idArea!))
+
+            if sqlite3_step(statement) == SQLITE_DONE
+            {
+                print("Successfully update row!")
+            }
+            else
+            {
+                print("Update row failed!")
+                return false
+            }
+        }
+        sqlite3_finalize(statement)
+        return true
+    }
 }

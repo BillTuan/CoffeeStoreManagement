@@ -65,7 +65,7 @@ class TableViewController: UIViewController, UICollectionViewDelegate, UICollect
         cell.numberTableLabel.layer.borderColor = UIColor.black.cgColor
         if Tables[indexPath.row].status! == 1 {
             cell.numberTableLabel.layer.borderWidth = 5
-            cell.numberTableLabel.layer.borderColor = UIColor.blue.cgColor
+            cell.numberTableLabel.layer.borderColor = UIColor.red.cgColor
         }
         cell.numberTableLabel.text = title
         cell.tableImageView.imageFromAssetURL(assetURL: NSURL(string: Tables[indexPath.row].image!)!)

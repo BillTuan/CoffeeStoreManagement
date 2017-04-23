@@ -1,21 +1,22 @@
 //
-//  MenuViewCell.swift
+//  AddFoodTableCell.swift
 //  RestaurantManagement
 //
-//  Created by Bill on 4/22/17.
+//  Created by Bill on 4/23/17.
 //  Copyright © 2017 Bill. All rights reserved.
 //
 
 import UIKit
 
-class MenuViewCell: UITableViewCell {
+class AddFoodTableCell: UITableViewCell {
 
-    @IBOutlet weak var idLabel: UILabel!
-    @IBOutlet weak var priceLabel: UILabel!
-    @IBOutlet weak var price: UILabel!
+    @IBOutlet weak var detailLabel: UILabel!
+    @IBOutlet weak var areaLabel: UILabel!
     @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var detail: UILabel!
+    @IBOutlet weak var area: UILabel!
     @IBOutlet weak var name: UILabel!
-    @IBOutlet weak var foodImageView: UIImageView!
+    @IBOutlet weak var tableImageView: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
