@@ -43,7 +43,11 @@ class SaleController: UIViewController, UITableViewDelegate, UITableViewDataSour
         billInfoArray.append(contentsOf: DBBillInfo.loadBillInfo(database: database))
         loadData()
     }
-    
+    override func viewWillAppear(_ animated: Bool) {
+        foodArray = DBFood.loadFood(database: database)
+        billArray = DBBill.loadBill(database: database)
+        billInfoArray = DBBillInfo.loadBillInfo(database: database)
+    }
     // MARK: - Table view data source
     
     func numberOfSections(in tableView: UITableView) -> Int {
@@ -84,39 +88,118 @@ class SaleController: UIViewController, UITableViewDelegate, UITableViewDataSour
         DataBill.removeAll()
         foodName.removeAll()
         foodQuantity.removeAll()
-        if(segmentDate.selectedSegmentIndex == 0){      // Today
-            for i in 0 ... billArray.count - 1{
-                // get date of string
-                let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
-                let day_checkdate = calendar.component(.day, from: checkdate!)
-                let month_checkdate = calendar.component(.month, from: checkdate!)
-                let year_checkdate = calendar.component(.year, from: checkdate!)
-                
-                if (year_checkdate == thisyear) && (month_checkdate == thismonth) && (day_checkdate == thisday){
-                    totalToday = totalToday + billArray[i].totalPrice!
-                    for j in 0 ... billInfoArray.count - 1{
-                        if billInfoArray[j].idBillInfo == billArray[i].idBill{
-                            for m in 0 ... foodArray.count - 1{
-                                if billInfoArray[j].idFood == foodArray[m].idFood{
-                                    if foodName.isEmpty{
-                                        let newfoodName = foodArray[m].name!
-                                        let newfoodQuantity = billInfoArray[j].amountFood!
-                                        foodName.append(newfoodName)
-                                        foodQuantity.append(newfoodQuantity)
-                                    }else{
-                                        var check = false
-                                        
-                                        for n in 0 ... foodName.count - 1{
-                                            if foodName[n] == foodArray[m].name!{
-                                                check = true
-                                                foodQuantity[n] += billInfoArray[j].amountFood!
-                                            }
-                                        }
-                                        if check == false{
+        if !billInfoArray.isEmpty{
+            if(segmentDate.selectedSegmentIndex == 0){      // Today
+                for i in 0 ... billArray.count - 1{
+                    // get date of string
+                    let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
+                    let day_checkdate = calendar.component(.day, from: checkdate!)
+                    let month_checkdate = calendar.component(.month, from: checkdate!)
+                    let year_checkdate = calendar.component(.year, from: checkdate!)
+                    
+                    if (year_checkdate == thisyear) && (month_checkdate == thismonth) && (day_checkdate == thisday){
+                        totalToday = totalToday + billArray[i].totalPrice!
+                        for j in 0 ... billInfoArray.count - 1{
+                            if billInfoArray[j].idBillInfo == billArray[i].idBill{
+                                for m in 0 ... foodArray.count - 1{
+                                    if billInfoArray[j].idFood == foodArray[m].idFood{
+                                        if foodName.isEmpty{
                                             let newfoodName = foodArray[m].name!
                                             let newfoodQuantity = billInfoArray[j].amountFood!
                                             foodName.append(newfoodName)
                                             foodQuantity.append(newfoodQuantity)
+                                        }else{
+                                            var check = false
+                                            
+                                            for n in 0 ... foodName.count - 1{
+                                                if foodName[n] == foodArray[m].name!{
+                                                    check = true
+                                                    foodQuantity[n] += billInfoArray[j].amountFood!
+                                                }
+                                            }
+                                            if check == false{
+                                                let newfoodName = foodArray[m].name!
+                                                let newfoodQuantity = billInfoArray[j].amountFood!
+                                                foodName.append(newfoodName)
+                                                foodQuantity.append(newfoodQuantity)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }else if(segmentDate.selectedSegmentIndex == 1){    // this month
+                for i in 0 ... billArray.count - 1{
+                    let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
+                    let month_checkdate = calendar.component(.month, from: checkdate!)
+                    let year_checkdate = calendar.component(.year, from: checkdate!)
+                    
+                    if (year_checkdate == thisyear) && (month_checkdate == thismonth){
+                        totalToday = totalToday + billArray[i].totalPrice!
+                        for j in 0 ... billInfoArray.count - 1{
+                            if billInfoArray[j].idBillInfo == billArray[i].idBill{
+                                for m in 0 ... foodArray.count - 1{
+                                    if billInfoArray[j].idFood == foodArray[m].idFood{
+                                        if foodName.isEmpty{
+                                            let newfoodName = foodArray[m].name!
+                                            let newfoodQuantity = billInfoArray[j].amountFood!
+                                            foodName.append(newfoodName)
+                                            foodQuantity.append(newfoodQuantity)
+                                        }else{
+                                            var check = false
+                                            
+                                            for n in 0 ... foodName.count - 1{
+                                                if foodName[n] == foodArray[m].name!{
+                                                    check = true
+                                                    foodQuantity[n] += billInfoArray[j].amountFood!
+                                                }
+                                            }
+                                            if check == false{
+                                                let newfoodName = foodArray[m].name!
+                                                let newfoodQuantity = billInfoArray[j].amountFood!
+                                                foodName.append(newfoodName)
+                                                foodQuantity.append(newfoodQuantity)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }else if(segmentDate.selectedSegmentIndex == 2){    // this year
+                for i in 0 ... billArray.count - 1{
+                    let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
+                    let year_checkdate = calendar.component(.year, from: checkdate!)
+                    
+                    if (year_checkdate == thisyear){
+                        totalToday = totalToday + billArray[i].totalPrice!
+                        for j in 0 ... billInfoArray.count - 1{
+                            if billInfoArray[j].idBillInfo == billArray[i].idBill{
+                                for m in 0 ... foodArray.count - 1{
+                                    if billInfoArray[j].idFood == foodArray[m].idFood{
+                                        if foodName.isEmpty{
+                                            let newfoodName = foodArray[m].name!
+                                            let newfoodQuantity = billInfoArray[j].amountFood!
+                                            foodName.append(newfoodName)
+                                            foodQuantity.append(newfoodQuantity)
+                                        }else{
+                                            var check = false
+                                            
+                                            for n in 0 ... foodName.count - 1{
+                                                if foodName[n] == foodArray[m].name!{
+                                                    check = true
+                                                    foodQuantity[n] += billInfoArray[j].amountFood!
+                                                }
+                                            }
+                                            if check == false{
+                                                let newfoodName = foodArray[m].name!
+                                                let newfoodQuantity = billInfoArray[j].amountFood!
+                                                foodName.append(newfoodName)
+                                                foodQuantity.append(newfoodQuantity)
+                                            }
                                         }
                                     }
                                 }
@@ -125,98 +208,20 @@ class SaleController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
             }
-        }else if(segmentDate.selectedSegmentIndex == 1){    // this month
-            for i in 0 ... billArray.count - 1{
-                let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
-                let month_checkdate = calendar.component(.month, from: checkdate!)
-                let year_checkdate = calendar.component(.year, from: checkdate!)
-                
-                if (year_checkdate == thisyear) && (month_checkdate == thismonth){
-                    totalToday = totalToday + billArray[i].totalPrice!
-                    for j in 0 ... billInfoArray.count - 1{
-                        if billInfoArray[j].idBillInfo == billArray[i].idBill{
-                            for m in 0 ... foodArray.count - 1{
-                                if billInfoArray[j].idFood == foodArray[m].idFood{
-                                    if foodName.isEmpty{
-                                        let newfoodName = foodArray[m].name!
-                                        let newfoodQuantity = billInfoArray[j].amountFood!
-                                        foodName.append(newfoodName)
-                                        foodQuantity.append(newfoodQuantity)
-                                    }else{
-                                        var check = false
-                                        
-                                        for n in 0 ... foodName.count - 1{
-                                            if foodName[n] == foodArray[m].name!{
-                                                check = true
-                                                foodQuantity[n] += billInfoArray[j].amountFood!
-                                            }
-                                        }
-                                        if check == false{
-                                            let newfoodName = foodArray[m].name!
-                                            let newfoodQuantity = billInfoArray[j].amountFood!
-                                            foodName.append(newfoodName)
-                                            foodQuantity.append(newfoodQuantity)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }else if(segmentDate.selectedSegmentIndex == 2){    // this year
-            for i in 0 ... billArray.count - 1{
-                let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
-                let year_checkdate = calendar.component(.year, from: checkdate!)
-                
-                if (year_checkdate == thisyear){
-                    totalToday = totalToday + billArray[i].totalPrice!
-                    for j in 0 ... billInfoArray.count - 1{
-                        if billInfoArray[j].idBillInfo == billArray[i].idBill{
-                            for m in 0 ... foodArray.count - 1{
-                                if billInfoArray[j].idFood == foodArray[m].idFood{
-                                    if foodName.isEmpty{
-                                        let newfoodName = foodArray[m].name!
-                                        let newfoodQuantity = billInfoArray[j].amountFood!
-                                        foodName.append(newfoodName)
-                                        foodQuantity.append(newfoodQuantity)
-                                    }else{
-                                        var check = false
-                                        
-                                        for n in 0 ... foodName.count - 1{
-                                            if foodName[n] == foodArray[m].name!{
-                                                check = true
-                                                foodQuantity[n] += billInfoArray[j].amountFood!
-                                            }
-                                        }
-                                        if check == false{
-                                            let newfoodName = foodArray[m].name!
-                                            let newfoodQuantity = billInfoArray[j].amountFood!
-                                            foodName.append(newfoodName)
-                                            foodQuantity.append(newfoodQuantity)
-                                        }
-                                    }
-                                }
-                            }
+            
+            // Add data to DataBill from foodName and foodQuantity
+            if foodName.isEmpty == false && foodQuantity.isEmpty == false{
+                for i in 0 ... foodName.count - 1{
+                    for j in 0 ... foodArray.count - 1{
+                        if foodName[i] == foodArray[j].name{
+                            let newadd = ShowData(image: foodArray[j].image!, foodName: foodName[i], foodQuantity: foodQuantity[i], foodMoney: foodArray[j].price! * foodQuantity[i])
+                            DataBill.append(newadd)
+                            
                         }
                     }
                 }
             }
         }
-        
-        // Add data to DataBill from foodName and foodQuantity
-        if foodName.isEmpty == false && foodQuantity.isEmpty == false{
-            for i in 0 ... foodName.count - 1{
-                for j in 0 ... foodArray.count - 1{
-                    if foodName[i] == foodArray[j].name{
-                        let newadd = ShowData(image: foodArray[j].image!, foodName: foodName[i], foodQuantity: foodQuantity[i], foodMoney: foodArray[j].price! * foodQuantity[i])
-                        DataBill.append(newadd)
-                        
-                    }
-                }
-            }
-        }
-        
         txtTotalMoney.text = totalToday.toCurrency()
         tableFood.reloadData()
     }
@@ -237,39 +242,118 @@ class SaleController: UIViewController, UITableViewDelegate, UITableViewDataSour
         DataBill.removeAll()
         foodName.removeAll()
         foodQuantity.removeAll()
-        if(segmentDate.selectedSegmentIndex == 0){      // Today
-            for i in 0 ... billArray.count - 1{
-                // get date of string
-                let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
-                let day_checkdate = calendar.component(.day, from: checkdate!)
-                let month_checkdate = calendar.component(.month, from: checkdate!)
-                let year_checkdate = calendar.component(.year, from: checkdate!)
-                
-                if (year_checkdate == thisyear) && (month_checkdate == thismonth) && (day_checkdate == thisday){
-                    totalToday = totalToday + billArray[i].totalPrice!
-                    for j in 0 ... billInfoArray.count - 1{
-                        if billInfoArray[j].idBillInfo == billArray[i].idBill{
-                            for m in 0 ... foodArray.count - 1{
-                                if billInfoArray[j].idFood == foodArray[m].idFood{
-                                    if foodName.isEmpty{
-                                        let newfoodName = foodArray[m].name!
-                                        let newfoodQuantity = billInfoArray[j].amountFood!
-                                        foodName.append(newfoodName)
-                                        foodQuantity.append(newfoodQuantity)
-                                    }else{
-                                        var check = false
-                                        
-                                        for n in 0 ... foodName.count - 1{
-                                            if foodName[n] == foodArray[m].name!{
-                                                check = true
-                                                foodQuantity[n] += billInfoArray[j].amountFood!
-                                            }
-                                        }
-                                        if check == false{
+        if !billInfoArray.isEmpty{
+            if(segmentDate.selectedSegmentIndex == 0){      // Today
+                for i in 0 ... billArray.count - 1{
+                    // get date of string
+                    let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
+                    let day_checkdate = calendar.component(.day, from: checkdate!)
+                    let month_checkdate = calendar.component(.month, from: checkdate!)
+                    let year_checkdate = calendar.component(.year, from: checkdate!)
+                    
+                    if (year_checkdate == thisyear) && (month_checkdate == thismonth) && (day_checkdate == thisday){
+                        totalToday = totalToday + billArray[i].totalPrice!
+                        for j in 0 ... billInfoArray.count - 1{
+                            if billInfoArray[j].idBillInfo == billArray[i].idBill{
+                                for m in 0 ... foodArray.count - 1{
+                                    if billInfoArray[j].idFood == foodArray[m].idFood{
+                                        if foodName.isEmpty{
                                             let newfoodName = foodArray[m].name!
                                             let newfoodQuantity = billInfoArray[j].amountFood!
                                             foodName.append(newfoodName)
                                             foodQuantity.append(newfoodQuantity)
+                                        }else{
+                                            var check = false
+                                            
+                                            for n in 0 ... foodName.count - 1{
+                                                if foodName[n] == foodArray[m].name!{
+                                                    check = true
+                                                    foodQuantity[n] += billInfoArray[j].amountFood!
+                                                }
+                                            }
+                                            if check == false{
+                                                let newfoodName = foodArray[m].name!
+                                                let newfoodQuantity = billInfoArray[j].amountFood!
+                                                foodName.append(newfoodName)
+                                                foodQuantity.append(newfoodQuantity)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }else if(segmentDate.selectedSegmentIndex == 1){    // this month
+                for i in 0 ... billArray.count - 1{
+                    let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
+                    let month_checkdate = calendar.component(.month, from: checkdate!)
+                    let year_checkdate = calendar.component(.year, from: checkdate!)
+                    
+                    if (year_checkdate == thisyear) && (month_checkdate == thismonth){
+                        totalToday = totalToday + billArray[i].totalPrice!
+                        for j in 0 ... billInfoArray.count - 1{
+                            if billInfoArray[j].idBillInfo == billArray[i].idBill{
+                                for m in 0 ... foodArray.count - 1{
+                                    if billInfoArray[j].idFood == foodArray[m].idFood{
+                                        if foodName.isEmpty{
+                                            let newfoodName = foodArray[m].name!
+                                            let newfoodQuantity = billInfoArray[j].amountFood!
+                                            foodName.append(newfoodName)
+                                            foodQuantity.append(newfoodQuantity)
+                                        }else{
+                                            var check = false
+                                            
+                                            for n in 0 ... foodName.count - 1{
+                                                if foodName[n] == foodArray[m].name!{
+                                                    check = true
+                                                    foodQuantity[n] += billInfoArray[j].amountFood!
+                                                }
+                                            }
+                                            if check == false{
+                                                let newfoodName = foodArray[m].name!
+                                                let newfoodQuantity = billInfoArray[j].amountFood!
+                                                foodName.append(newfoodName)
+                                                foodQuantity.append(newfoodQuantity)
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }else if(segmentDate.selectedSegmentIndex == 2){    // this year
+                for i in 0 ... billArray.count - 1{
+                    let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
+                    let year_checkdate = calendar.component(.year, from: checkdate!)
+                    
+                    if (year_checkdate == thisyear){
+                        totalToday = totalToday + billArray[i].totalPrice!
+                        for j in 0 ... billInfoArray.count - 1{
+                            if billInfoArray[j].idBillInfo == billArray[i].idBill{
+                                for m in 0 ... foodArray.count - 1{
+                                    if billInfoArray[j].idFood == foodArray[m].idFood{
+                                        if foodName.isEmpty{
+                                            let newfoodName = foodArray[m].name!
+                                            let newfoodQuantity = billInfoArray[j].amountFood!
+                                            foodName.append(newfoodName)
+                                            foodQuantity.append(newfoodQuantity)
+                                        }else{
+                                            var check = false
+                                            
+                                            for n in 0 ... foodName.count - 1{
+                                                if foodName[n] == foodArray[m].name!{
+                                                    check = true
+                                                    foodQuantity[n] += billInfoArray[j].amountFood!
+                                                }
+                                            }
+                                            if check == false{
+                                                let newfoodName = foodArray[m].name!
+                                                let newfoodQuantity = billInfoArray[j].amountFood!
+                                                foodName.append(newfoodName)
+                                                foodQuantity.append(newfoodQuantity)
+                                            }
                                         }
                                     }
                                 }
@@ -278,93 +362,16 @@ class SaleController: UIViewController, UITableViewDelegate, UITableViewDataSour
                     }
                 }
             }
-        }else if(segmentDate.selectedSegmentIndex == 1){    // this month
-            for i in 0 ... billArray.count - 1{
-                let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
-                let month_checkdate = calendar.component(.month, from: checkdate!)
-                let year_checkdate = calendar.component(.year, from: checkdate!)
-                
-                if (year_checkdate == thisyear) && (month_checkdate == thismonth){
-                    totalToday = totalToday + billArray[i].totalPrice!
-                    for j in 0 ... billInfoArray.count - 1{
-                        if billInfoArray[j].idBillInfo == billArray[i].idBill{
-                            for m in 0 ... foodArray.count - 1{
-                                if billInfoArray[j].idFood == foodArray[m].idFood{
-                                    if foodName.isEmpty{
-                                        let newfoodName = foodArray[m].name!
-                                        let newfoodQuantity = billInfoArray[j].amountFood!
-                                        foodName.append(newfoodName)
-                                        foodQuantity.append(newfoodQuantity)
-                                    }else{
-                                        var check = false
-                                        
-                                        for n in 0 ... foodName.count - 1{
-                                            if foodName[n] == foodArray[m].name!{
-                                                check = true
-                                                foodQuantity[n] += billInfoArray[j].amountFood!
-                                            }
-                                        }
-                                        if check == false{
-                                            let newfoodName = foodArray[m].name!
-                                            let newfoodQuantity = billInfoArray[j].amountFood!
-                                            foodName.append(newfoodName)
-                                            foodQuantity.append(newfoodQuantity)
-                                        }
-                                    }
-                                }
-                            }
+            
+            // Add data to DataBill from foodName and foodQuantity
+            if foodName.isEmpty == false && foodQuantity.isEmpty == false{
+                for i in 0 ... foodName.count - 1{
+                    for j in 0 ... foodArray.count - 1{
+                        if foodName[i] == foodArray[j].name{
+                            let newadd = ShowData(image: foodArray[j].image!, foodName: foodName[i], foodQuantity: foodQuantity[i], foodMoney: foodArray[j].price! * foodQuantity[i])
+                            DataBill.append(newadd)
+                            
                         }
-                    }
-                }
-            }
-        }else if(segmentDate.selectedSegmentIndex == 2){    // this year
-            for i in 0 ... billArray.count - 1{
-                let checkdate = formatter.date(from: billArray[i].dateCheckIn!)
-                let year_checkdate = calendar.component(.year, from: checkdate!)
-                
-                if (year_checkdate == thisyear){
-                    totalToday = totalToday + billArray[i].totalPrice!
-                    for j in 0 ... billInfoArray.count - 1{
-                        if billInfoArray[j].idBillInfo == billArray[i].idBill{
-                            for m in 0 ... foodArray.count - 1{
-                                if billInfoArray[j].idFood == foodArray[m].idFood{
-                                    if foodName.isEmpty{
-                                        let newfoodName = foodArray[m].name!
-                                        let newfoodQuantity = billInfoArray[j].amountFood!
-                                        foodName.append(newfoodName)
-                                        foodQuantity.append(newfoodQuantity)
-                                    }else{
-                                        var check = false
-                                        
-                                        for n in 0 ... foodName.count - 1{
-                                            if foodName[n] == foodArray[m].name!{
-                                                check = true
-                                                foodQuantity[n] += billInfoArray[j].amountFood!
-                                            }
-                                        }
-                                        if check == false{
-                                            let newfoodName = foodArray[m].name!
-                                            let newfoodQuantity = billInfoArray[j].amountFood!
-                                            foodName.append(newfoodName)
-                                            foodQuantity.append(newfoodQuantity)
-                                        }
-                                    }
-                                }
-                            }
-                        }
-                    }
-                }
-            }
-        }
-        
-        // Add data to DataBill from foodName and foodQuantity
-        if foodName.isEmpty == false && foodQuantity.isEmpty == false{
-            for i in 0 ... foodName.count - 1{
-                for j in 0 ... foodArray.count - 1{
-                    if foodName[i] == foodArray[j].name{
-                        let newadd = ShowData(image: foodArray[j].image!, foodName: foodName[i], foodQuantity: foodQuantity[i], foodMoney: foodArray[j].price! * foodQuantity[i])
-                        DataBill.append(newadd)
-                        
                     }
                 }
             }

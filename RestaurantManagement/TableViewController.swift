@@ -43,6 +43,7 @@ class TableViewController: UIViewController, UICollectionViewDelegate, UICollect
         Tables = DBTable.getTableWithIDArea(database: database, idArea: idArea!)
     }
     override func viewWillAppear(_ animated: Bool) {
+        Tables = DBTable.getTableWithIDArea(database: database, idArea: idArea!)
         self.TableCollectionView.reloadData()
         
     }
@@ -73,18 +74,14 @@ class TableViewController: UIViewController, UICollectionViewDelegate, UICollect
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        let item = collectionView.cellForItem(at: indexPath)
         let storyb = UIStoryboard(name: "Main", bundle: nil)
         let detailView = storyb.instantiateViewController(withIdentifier: "DetailTable") as! TableDetailViewController
         detailView.tableName = self.Tables[indexPath.row].name!
         detailView.idTable = self.Tables[indexPath.row].idTable!
         if self.Tables[indexPath.row].status! == 0
         {
-
             let actionAlert = UIAlertController(title: "", message: message, preferredStyle: .actionSheet)
             actionAlert.addAction(UIAlertAction(title: title1, style: .default, handler: { (UIAlertAction) in
-                item?.layer.borderWidth = 5
-                item?.layer.borderColor = UIColor.blue.cgColor
                 self.addNewBill(idTable: self.Tables[indexPath.row].idTable!)
                 self.Tables[indexPath.row].status = 1
                 if  DBTable.updateTable(database: self.database, Table: self.Tables[indexPath.row]){}

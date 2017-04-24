@@ -285,9 +285,9 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revenue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzN-kb-q2a">
-                                <rect key="frame" x="20" y="110" width="70" height="25"/>
+                                <rect key="frame" x="20" y="110" width="100" height="25"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="70" id="Y1S-FW-luN"/>
+                                    <constraint firstAttribute="width" constant="100" id="Y1S-FW-luN"/>
                                     <constraint firstAttribute="height" constant="25" id="qJ1-9P-nKy"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
@@ -295,7 +295,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApO-74-1ch">
-                                <rect key="frame" x="105" y="110" width="215" height="25"/>
+                                <rect key="frame" x="135" y="110" width="185" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Yvo-VE-Jtl"/>
                                 </constraints>

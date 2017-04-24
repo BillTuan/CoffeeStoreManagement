@@ -136,12 +136,22 @@ class ChooseFoodViewController: UIViewController, UISearchBarDelegate, UITableVi
             
             if let textfield = alert.textFields?.first
             {
-                if textfield.text != ""
+                if textfield.text != "" && (Int(textfield.text!) != 0)
                 {
                     self.amountFood = textfield.text!
-                    let newBillInfo = BillInfo(idBill: self.idBill!, amountFood: Int(self.amountFood)!, idFood: self.Foods[indexPath.row].idFood!)
-                    if DBBillInfo.insertBillInfo(database: self.database, BillInfo: newBillInfo){}
-                    self.navigationController?.popViewController(animated: true)
+                    if DBBillInfo.selectBillInfoWithIDFood(database: self.database, idInfo: self.idBill!, idFood: self.Foods[indexPath.row].idFood!).isEmpty
+                    {
+                        let newBillInfo = BillInfo(idBill: self.idBill!, amountFood: Int(self.amountFood)!, idFood: self.Foods[indexPath.row].idFood!)
+                        if DBBillInfo.insertBillInfo(database: self.database, BillInfo: newBillInfo){}
+                        self.navigationController?.popViewController(animated: true)
+                    }
+                    else
+                    {
+                        var currentBillInfo = DBBillInfo.selectBillInfoWithIDFood(database: self.database, idInfo: self.idBill!, idFood: self.Foods[indexPath.row].idFood!)
+                        currentBillInfo[0].amountFood = currentBillInfo[0].amountFood! + Int(self.amountFood)!
+                        if DBBillInfo.updateBillInfo(database: self.database, BillInfo: currentBillInfo[0]){}
+                        self.navigationController?.popViewController(animated: true)
+                    }
                 }
             }
         }))
