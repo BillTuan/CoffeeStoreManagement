@@ -99,6 +99,7 @@ class EditTable: UITableViewController {
     }
     func configureViewFromLocalisation() {
         self.navigationItem.title = Localization("EditTable")
+        self.navigationItem.rightBarButtonItem?.title = Localization("Edit")
         name = Localization("Name")
         area1 = Localization("Area")
         detail = Localization("Detail")

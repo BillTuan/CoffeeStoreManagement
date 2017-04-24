@@ -389,7 +389,6 @@ class SaleController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     func configureViewFromLocalisation() {
-        self.tabBarItem.title = Localization("BarItem2")
         self.navigation.topItem?.title = Localization("BarItem2")
         txtRevenue.text = Localization("Revenue")
         self.segmentDate.setTitle(Localization("Today"), forSegmentAt: 0)

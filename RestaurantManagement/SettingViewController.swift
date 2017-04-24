@@ -56,7 +56,6 @@ class SettingViewController: UIViewController {
         }
     }
     func configureViewFromLocalisation() {
-        self.title = Localization("BarItem4")
         currentLan.setTitle(Localization("currentLang"), for: .normal)
         self.navigationItem.title = Localization("Setting")
         editLabel.text = Localization("EditStore")

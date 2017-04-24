@@ -47,6 +47,9 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     override func viewWillAppear(_ animated: Bool) {
         Categorys = DBCategory.loadCategory(database: database)
+        for cate in Categorys{
+            tempFoods.append(DBFood.selectFoodWithIDCategory(database: database, id: cate.idCategory!))
+        }
         loadFood()
         menuTableView.reloadData()
     }
@@ -166,7 +169,6 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
     
     func configureViewFromLocalisation() {
         search.removeAll()
-        self.title = Localization("BarItem3")
         name = Localization("Name")
         price = Localization("Price")
         foodID = Localization("FoodID")

@@ -14,6 +14,9 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
     var tableName = ""
     var idTable = 0
     var message = ""
+    var chooseAmount = ""
+    var amountOfFood = ""
+    var toDelete = ""
     //MARK: *** Data Model
     var database : OpaquePointer?
     var Bills = [Bill]()
@@ -90,6 +93,43 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
         }
         return cell
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let food = DBFood.selectFoodWithID(database: database, id: BillInfos[indexPath.row].idFood!)
+        let alert = UIAlertController(title: food[0].name, message: chooseAmount, preferredStyle: .alert)
+        
+        alert.addTextField(configurationHandler: {(textfield: UITextField) in
+            textfield.placeholder = self.amountOfFood + " (0 " + self.toDelete + " )"
+            textfield.keyboardType = .numberPad
+        })
+        
+        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: {(action: UIAlertAction) in
+            
+            if let textfield = alert.textFields?.first
+            {
+                if textfield.text != "" && Int(textfield.text!) != 0
+                {
+                    var currentBillInfo = DBBillInfo.selectBillInfoWithIDFood(database: self.database, idInfo: self.BillInfos[indexPath.row].idBillInfo!, idFood: self.BillInfos[indexPath.row].idFood!)
+                    currentBillInfo[0].amountFood = Int(textfield.text!)!
+                    if DBBillInfo.updateBillInfo(database: self.database, BillInfo: currentBillInfo[0]){}
+                    self.BillInfos = DBBillInfo.selectBillInfoWithID(database: self.database, id: self.Bills[0].idBill!)
+                    self.setTotalMoney()
+                    self.foodTableView.reloadData()
+                    
+                }
+                else if Int(textfield.text!) == 0
+                {
+                    DBBillInfo.deleteFoodfromBillInfo(database: self.database, idFood: self.BillInfos[indexPath.row].idFood!)
+                    self.BillInfos = DBBillInfo.selectBillInfoWithID(database: self.database, id: self.Bills[0].idBill!)
+                    self.setTotalMoney()
+                    self.foodTableView.reloadData()
+                }
+            }
+        }))
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        self.present(alert, animated: true, completion: nil)
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "chooseFood"
         {
@@ -120,5 +160,8 @@ class TableDetailViewController: UIViewController, UITableViewDelegate, UITableV
         billButton.setTitle(Localization("Pay"), for: .normal)
         addFoodButton.setTitle(Localization("AddMoreFood"), for: .normal)
         message = Localization("DoYouWantPay")
+        chooseAmount = Localization("AlertChooseAmountFood")
+        amountOfFood = Localization("AmountOfFood")
+        toDelete = Localization("toDelete")
     }
 }

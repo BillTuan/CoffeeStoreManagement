@@ -88,7 +88,7 @@ class EditInfoItem: UIViewController ,UIImagePickerControllerDelegate, UINavigat
         categoryPicker.dataSource = self
         categoryPicker.delegate = self
         categoryText.inputView = categoryPicker
-        idCategory = Categorys[0].idCategory!
+        idCategory = (food?.category!)!
         
     }
     

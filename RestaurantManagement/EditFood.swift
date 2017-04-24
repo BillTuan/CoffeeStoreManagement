@@ -104,6 +104,7 @@ class EditFood: UITableViewController {
     }
     func configureViewFromLocalisation() {
         self.navigationItem.title = Localization("EditFood")
+        self.navigationItem.rightBarButtonItem?.title = Localization("Edit")
         name = Localization("Name")
         category1 = Localization("Category")
         price = Localization("Price")

@@ -258,7 +258,7 @@
             </objects>
             <point key="canvasLocation" x="714.375" y="922.18309859154931"/>
         </scene>
-        <!--Sale-->
+        <!--Sale Controller-->
         <scene sceneID="jNf-r0-MHs">
             <objects>
                 <viewController id="SqP-l2-oJ3" customClass="SaleController" customModule="RestaurantManagement" customModuleProvider="target" sceneMemberID="viewController">
@@ -271,7 +271,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="Bmz-0r-Yi1">
-                                <rect key="frame" x="16" y="65" width="288" height="31"/>
+                                <rect key="frame" x="16" y="75" width="288" height="31"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="q01-dS-hOs"/>
                                 </constraints>
@@ -285,7 +285,7 @@
                                 </connections>
                             </segmentedControl>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Revenue" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PzN-kb-q2a">
-                                <rect key="frame" x="20" y="110" width="100" height="25"/>
+                                <rect key="frame" x="20" y="120" width="100" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="100" id="Y1S-FW-luN"/>
                                     <constraint firstAttribute="height" constant="25" id="qJ1-9P-nKy"/>
@@ -295,7 +295,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ApO-74-1ch">
-                                <rect key="frame" x="135" y="110" width="185" height="25"/>
+                                <rect key="frame" x="135" y="120" width="185" height="25"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="25" id="Yvo-VE-Jtl"/>
                                 </constraints>
@@ -304,7 +304,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="107" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="nIh-8t-agj">
-                                <rect key="frame" x="0.0" y="145" width="320" height="374"/>
+                                <rect key="frame" x="0.0" y="155" width="320" height="364"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" reuseIdentifier="sale_cell" rowHeight="107" id="6w3-i0-LKE" customClass="SaleViewCell" customModule="RestaurantManagement" customModuleProvider="target">
@@ -412,9 +412,9 @@
                                 </prototypes>
                             </tableView>
                             <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="vRy-Mu-3S2">
-                                <rect key="frame" x="0.0" y="0.0" width="320" height="50"/>
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="50" id="uZ7-An-HU5"/>
+                                    <constraint firstAttribute="height" constant="60" id="uZ7-An-HU5"/>
                                 </constraints>
                                 <items>
                                     <navigationItem title="Title" id="1Za-GF-tBH"/>
@@ -440,7 +440,7 @@
                             <constraint firstAttribute="trailing" secondItem="vRy-Mu-3S2" secondAttribute="trailing" id="yrq-vA-0rm"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="Sale" image="Sales Performance.png" selectedImage="Sales Performance.png" id="RDs-iO-BD1"/>
+                    <tabBarItem key="tabBarItem" tag="2" title="" image="Sales Performance.png" selectedImage="Sales Performance.png" id="RDs-iO-BD1"/>
                     <connections>
                         <outlet property="navigation" destination="vRy-Mu-3S2" id="A7l-dt-CX4"/>
                         <outlet property="segmentDate" destination="Bmz-0r-Yi1" id="9ta-mt-fgH"/>
@@ -473,7 +473,7 @@
             </objects>
             <point key="canvasLocation" x="-522" y="95"/>
         </scene>
-        <!--Table-->
+        <!--Area Table View Controller-->
         <scene sceneID="fo0-8p-Ujx">
             <objects>
                 <tableViewController id="1VF-5I-FBG" customClass="AreaTableViewController" customModule="RestaurantManagement" customModuleProvider="target" sceneMemberID="viewController">
@@ -561,7 +561,7 @@
                             <outlet property="delegate" destination="1VF-5I-FBG" id="jx6-l4-O7q"/>
                         </connections>
                     </tableView>
-                    <tabBarItem key="tabBarItem" title="Table" image="shop.png" selectedImage="shop.png" id="O4W-bz-IBg"/>
+                    <tabBarItem key="tabBarItem" tag="1" title="" image="shop.png" selectedImage="shop.png" id="O4W-bz-IBg"/>
                     <connections>
                         <outlet property="areaTitle" destination="Ldo-6y-wIh" id="jhV-lO-Vzr"/>
                     </connections>
@@ -2295,11 +2295,11 @@
             </objects>
             <point key="canvasLocation" x="1022" y="94"/>
         </scene>
-        <!--Setting-->
+        <!--Navigation Controller-->
         <scene sceneID="puj-hc-otR">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="hp5-ze-rYQ" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Setting" image="Settings.png" selectedImage="Settings.png" id="ik3-RP-9zy"/>
+                    <tabBarItem key="tabBarItem" tag="4" title="" image="Settings.png" selectedImage="Settings.png" id="ik3-RP-9zy"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="sjd-kW-RdM">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -2314,11 +2314,11 @@
             </objects>
             <point key="canvasLocation" x="1717.5" y="975"/>
         </scene>
-        <!--Menu-->
+        <!--Navigation Controller-->
         <scene sceneID="p0J-dx-ees">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IE6-Cl-sR5" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Menu" image="Menu.png" selectedImage="Menu.png" id="JiR-ZG-xso"/>
+                    <tabBarItem key="tabBarItem" tag="3" title="" image="Menu.png" selectedImage="Menu.png" id="JiR-ZG-xso"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="G8J-vS-uhI">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>

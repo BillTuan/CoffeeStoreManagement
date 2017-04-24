@@ -95,6 +95,7 @@ class EditAreaTableViewController: UITableViewController {
     }
     func configureViewFromLocalisation() {
         self.navigationItem.title = Localization("EditArea")
+        self.navigationItem.rightBarButtonItem?.title = Localization("Edit")
         name = Localization("Name")
         detail = Localization("Detail")
     }

@@ -168,4 +168,24 @@ class DBBillInfo{
         return true
     }
     
+    static func deleteFoodfromBillInfo(database: OpaquePointer? , idFood: Int)
+    {
+        let delete = "DELETE FROM BillInfo WHERE idFood = " + String(idFood)
+        var statement : OpaquePointer?
+        if sqlite3_prepare_v2(database, delete, -1, &statement, nil) == SQLITE_OK
+        {
+            if sqlite3_step(statement) == SQLITE_DONE
+            {
+                print("Successfully deleted row!")
+            }
+            else
+            {
+                print("Could not delete row!")
+            }
+        }
+        else{
+            print("Delete statment could not be prepared!")
+        }
+        sqlite3_finalize(statement)
+    }
 }

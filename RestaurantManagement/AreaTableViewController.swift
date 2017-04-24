@@ -81,7 +81,6 @@ class AreaTableViewController: UITableViewController {
         }
     }
     func configureViewFromLocalisation() {
-        self.tabBarItem.title = Localization("BarItem1")
         self.areaTitle.title = Localization("Area")
     }
 
