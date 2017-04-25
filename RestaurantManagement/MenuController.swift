@@ -174,6 +174,7 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
         search.append(name)
         search.append(price)
         searchFoodBar.scopeButtonTitles = search
+        self.navigationItem.title = Localization("BarItem3")
     }
     
 }

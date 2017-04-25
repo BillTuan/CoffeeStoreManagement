@@ -55,3 +55,12 @@
 "Thismonth" = "Tháng nay";
 "Thisyear" = "Năm nay";
 "Amount" = "Số lượng";
+"Statistic" = "Thống kê";
+"StatisticWeek" = "Thống kê theo tuần";
+"Income" = "Thu nhập";
+"Warning" = "Cảnh báo";
+"Namemust" = "Tên phải có giá trị";
+"Nameandareamust" = "Tên và khu vực phải có giá trị";
+"Idmust" = "ID, tên và loại phải có giá trị";
+"Itemexist" = "ID món đã tồn tại";
+"Areaempty" = "Chưa có thông tin khu vực, làm ơn thêm khu vực mới";

@@ -31,7 +31,12 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     var foodCategory = ""
     var storeCurrency = ""
     var symbolCurrency = ""
-    
+    var warning = ""
+    var namemust = ""
+    var nameAndAreamust = ""
+    var idmust = ""
+    var iditem = ""
+    var areaempty = ""
     //MARK: *** UIElements
     //MARK: Label
     @IBOutlet weak var storeInfoLabel: UILabel!
@@ -76,41 +81,50 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     
     //MARK: *** UIEvents
     @IBAction func addAreaTapped(_ sender: Any) {
-        let newArea = Area(idArea: 0, name: areaNameText.text!, detail: areaDetailText.text!, image: (areaImage?.absoluteString ?? ""))
+        
         if (areaNameText.text?.isEmpty)!
         {
-            self.showAlert(title: "Warning", message: "Name must have value")
+            self.showAlert(title: warning, message: namemust)
         }
-        else if DBArea.insertArea(database: database, Area: newArea)
+        else
         {
-            self.showAlert(title: "", message: "Success insert new Area")
-            areaNameText.text = ""
-            areaDetailText.text = ""
+            let newArea = Area(idArea: 0, name: areaNameText.text!, detail: areaDetailText.text!, image: (areaImage?.absoluteString ?? ""))
+            if DBArea.insertArea(database: database, Area: newArea)
+            {
+                self.showAlert(title: "", message: "Success insert new Area")
+                areaNameText.text = ""
+                areaDetailText.text = ""
+            }
         }
     }
     
     @IBAction func addTableTapped(_ sender: Any) {
-        let newTable = Table(idTable: 1, name: tableNameText.text!, detail: tableDetailText.text!, image: (tableImage?.absoluteString ?? ""), status: 0, area: idArea!)
+
         if ((tableNameText.text?.isEmpty)! || (tableAreaText.text?.isEmpty)!)
         {
-            self.showAlert(title: "Warning", message: "Name and Area must have value")
+            self.showAlert(title: warning, message: nameAndAreamust)
         }
-        else if DBTable.insertTable(database: database, Table: newTable)
+        else
         {
-            self.showAlert(title: "", message: "Success insert Table")
-            tableNameText.text = ""
-            tableAreaText.text = ""
-            tableDetailText.text = ""
+            let newTable = Table(idTable: 1, name: tableNameText.text!, detail: tableDetailText.text!, image: (tableImage?.absoluteString ?? ""), status: 0, area: idArea!)
+            if DBTable.insertTable(database: database, Table: newTable)
+            {
+        
+                self.showAlert(title: "", message: "Success insert Table")
+                tableNameText.text = ""
+                tableAreaText.text = ""
+                tableDetailText.text = ""
+            }
         }
     }
     @IBAction func addItemTapped(_ sender: Any) {
         if ((itemIDText.text?.isEmpty)! || (itemNameText.text?.isEmpty)! || (itemCategoryText.text?.isEmpty)!)
         {
-            self.showAlert(title: "Warning", message: "ID, name and Category must have value")
+            self.showAlert(title: warning, message: idmust)
         }
         else if !DBFood.selectFoodWithID(database: database, id: Int(itemIDText.text!)!).isEmpty
         {
-            self.showAlert(title: "Warning", message: "ID item was exist")
+            self.showAlert(title: warning, message: iditem)
         }
 
         else{
@@ -151,7 +165,7 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
         }
         else
         {
-            showAlert(title: "", message: "Area is empty now, please add new area")
+            showAlert(title: "", message: areaempty)
         }
     }
     
@@ -453,5 +467,11 @@ class EditViewController: UIViewController, UIImagePickerControllerDelegate, UIN
     }
     func configureViewFromLocalisation() {
         setLabelView()
+        warning = Localization("Warning")
+        namemust = Localization("Namemust")
+        nameAndAreamust = Localization("Nameandareamust")
+        idmust = Localization("Idmust")
+        iditem = Localization("Itemexist")
+        areaempty = Localization("Areaempty")
     }
 }

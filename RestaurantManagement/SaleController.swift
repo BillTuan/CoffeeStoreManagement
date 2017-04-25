@@ -11,6 +11,7 @@ import UIKit
 class SaleController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
     
+    @IBOutlet weak var statisticButton: UIButton!
     @IBOutlet weak var navigation: UINavigationBar!
     @IBOutlet weak var txtTotalMoney: UILabel!
     @IBOutlet weak var txtRevenue: UILabel!
@@ -397,6 +398,7 @@ class SaleController: UIViewController, UITableViewDelegate, UITableViewDataSour
         price = Localization("Price")
         name = Localization("Name")
         amount = Localization("Amount")
+        statisticButton.setTitle(Localization("Statistic"), for: .normal)
     }
 
     

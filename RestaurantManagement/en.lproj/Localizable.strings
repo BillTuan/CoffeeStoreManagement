@@ -58,3 +58,12 @@
 "Thisyear" = "This year";
 "Amount" = "Amount";
 "toDelete" = "to delete food";
+"Statistic" = "Statistic";
+"StatisticWeek" = "Statistic week";
+"Income" = "Income";
+"Warning" = "Warning";
+"Namemust" = "Name must have value";
+"Nameandareamust" = "Name and area must have value";
+"Idmust" = "ID, name and Category must have value";
+"Itemexist" = "ID item was exist";
+"Areaempty" = "Area is empty now, please add new area";

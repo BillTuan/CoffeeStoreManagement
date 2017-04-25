@@ -147,7 +147,7 @@ class DBBillInfo{
 
     static func updateBillInfo(database: OpaquePointer?, BillInfo: BillInfo) -> Bool
     {
-        let update = "UPDATE BillInfo SET amountFood = ?, idFood = ? WHERE idBillInfo = ?"
+        let update = "UPDATE BillInfo SET amountFood = ? WHERE idFood = ? and idBillInfo = ?"
         var statement : OpaquePointer?
         if sqlite3_prepare_v2(database, update, -1, &statement, nil) == SQLITE_OK
         {

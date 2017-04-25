@@ -34,6 +34,7 @@
 		A92026401EAC669B0073CA7A /* EditInfoItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = A920263F1EAC669B0073CA7A /* EditInfoItem.swift */; };
 		A92026421EAC8CE60073CA7A /* AddFoodTable.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92026411EAC8CE60073CA7A /* AddFoodTable.swift */; };
 		A92026441EAC8E040073CA7A /* AddFoodTableCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92026431EAC8E040073CA7A /* AddFoodTableCell.swift */; };
+		A92D558C1EAF4C0E008CA92B /* StatisticsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92D558B1EAF4C0E008CA92B /* StatisticsViewController.swift */; };
 		A9A5DF931EA49E080044A075 /* ChooseFoodViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A5DF921EA49E080044A075 /* ChooseFoodViewController.swift */; };
 		A9A5DF951EA49E670044A075 /* ChooseFoodTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9A5DF941EA49E670044A075 /* ChooseFoodTableViewCell.swift */; };
 		A9A5DF981EA4DDF80044A075 /* libsqlite3.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = A9A5DF971EA4DDF80044A075 /* libsqlite3.tbd */; };
@@ -91,6 +92,7 @@
 		A920263F1EAC669B0073CA7A /* EditInfoItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditInfoItem.swift; sourceTree = "<group>"; };
 		A92026411EAC8CE60073CA7A /* AddFoodTable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodTable.swift; sourceTree = "<group>"; };
 		A92026431EAC8E040073CA7A /* AddFoodTableCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddFoodTableCell.swift; sourceTree = "<group>"; };
+		A92D558B1EAF4C0E008CA92B /* StatisticsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StatisticsViewController.swift; sourceTree = "<group>"; };
 		A9A5DF921EA49E080044A075 /* ChooseFoodViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseFoodViewController.swift; sourceTree = "<group>"; };
 		A9A5DF941EA49E670044A075 /* ChooseFoodTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChooseFoodTableViewCell.swift; sourceTree = "<group>"; };
 		A9A5DF971EA4DDF80044A075 /* libsqlite3.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.tbd; path = usr/lib/libsqlite3.tbd; sourceTree = SDKROOT; };
@@ -290,6 +292,7 @@
 			children = (
 				A9103AA41EA314AE00E50456 /* SaleController.swift */,
 				A9F1A7431EACA06C0013BAD6 /* SaleViewCell.swift */,
+				A92D558B1EAF4C0E008CA92B /* StatisticsViewController.swift */,
 			);
 			name = Sale_Tab;
 			sourceTree = "<group>";
@@ -451,6 +454,7 @@
 				A9A9A33B1EA75C3C00757477 /* EditAreaTableViewCell.swift in Sources */,
 				A91353821EA5A102007EFA74 /* SettingViewController.swift in Sources */,
 				A9A5DFAA1EA704C80044A075 /* Category.swift in Sources */,
+				A92D558C1EAF4C0E008CA92B /* StatisticsViewController.swift in Sources */,
 				A92026441EAC8E040073CA7A /* AddFoodTableCell.swift in Sources */,
 				A9103AA71EA314BB00E50456 /* MenuController.swift in Sources */,
 				A92026401EAC669B0073CA7A /* EditInfoItem.swift in Sources */,
