@@ -35,10 +35,6 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
         NotificationCenter.default.addObserver(self, selector: #selector(SettingViewController.receiveLanguageChangedNotification(notification:)), name: kNotificationLanguageChanged, object: nil)
         configureViewFromLocalisation()
         database = DB.openDatabase()
-        Categorys = DBCategory.loadCategory(database: database)
-        for cate in Categorys{
-            tempFoods.append(DBFood.selectFoodWithIDCategory(database: database, id: cate.idCategory!))
-        }
         loadFood()
         menuTableView.delegate = self
         menuTableView.dataSource = self
@@ -46,14 +42,16 @@ class MenuController: UIViewController, UITableViewDelegate, UITableViewDataSour
         
     }
     override func viewWillAppear(_ animated: Bool) {
-        Categorys = DBCategory.loadCategory(database: database)
-        for cate in Categorys{
-            tempFoods.append(DBFood.selectFoodWithIDCategory(database: database, id: cate.idCategory!))
-        }
         loadFood()
         menuTableView.reloadData()
     }
     func loadFood(){
+        Categorys = DBCategory.loadCategory(database: database)
+        tempFoods.removeAll()
+        Foods.removeAll()
+        for cate in Categorys{
+            tempFoods.append(DBFood.selectFoodWithIDCategory(database: database, id: cate.idCategory!))
+        }
         for cate in Categorys{
             Foods.append(DBFood.selectFoodWithIDCategory(database: database, id: cate.idCategory!))
         }
