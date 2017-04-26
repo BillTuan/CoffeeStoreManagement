@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  RestaurantManagement
+
+  Created by Bill on 4/16/17.
+  Copyright © 2017 Bill. All rights reserved.
+*/
+"BarItem1" = "テーブル";
+"BarItem2" = "セール";
+"BarItem3" = "メニュー";
+"BarItem4" = "設定";
+"Back" = "バック";
+"Area" = "エリア";
+"Tables" = "テーブル";
+"MessageAlertTable" = "何をしたいですか";
+"TittleAlertTable" = "このテーブルおねがいします";
+"AlertCancel" = "キャンセル";
+"TotalMoney" = "トータル";
+"AddFood" = "注文";
+"Pay" = "払う";
+"AddMoreFood" = "注文";
+"FoodID" = "身元";
+"FoodName" = "名称";
+"FoodPrice" = "値段";
+"AlertChooseAmountFood" = "量";
+"AmountOfFood" = "量";
+"Setting" = "設定";
+"Language" = "言語";
+"EditStore" = "レストランを編集する";
+"Edit" = "編集";
+"ChooseLaguage" = "言語を選択する";
+"StoreInfo" = "レストラン情報";
+"Name" = "名称";
+"Address" = "住所";
+"Currency" = "通貨";
+"StoreArea" = "エリア区画";
+"Detail" = "ディテール";
+"StoreTable" = "テーブル区画";
+"MenuItem" = "項目";
+"Add" = "足す";
+"Edit" = "編集";
+"ItemID" = "身元";
+"ItemName" = "名称";
+"Price" = "値段";
+"Category" = "カテゴリ";
+"AddNewCategory" = "カテゴリを追加";
+"EditArea" = "編集";
+"EditTable" = "編集";
+"EditFood" = "編集";
+"DoYouWantPay" = "テーブルの支払いほうしいですか";
+"currentLang" = "日本語";
+"AddImage" = "写真を追加";
+"Sale" = "セール";
+"Revenue" = "収入";
+"Today" = "今日";
+"Thismonth" = "今月";
+"Thisyear" = "今年";
+"Amount" = "量";
+"toDelete" = "食物を削除";

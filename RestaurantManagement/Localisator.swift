@@ -23,7 +23,7 @@ class Localisator {
     // MARK: - Private properties
     
     private let userDefaults                    = UserDefaults.standard
-    private var availableLanguagesArray         = ["DeviceLanguage", "English_en", "Vietnamese_vi"]
+    private var availableLanguagesArray         = ["DeviceLanguage", "English_en", "Vietnamese_vi", "Chinese(Simplified)_zh-Hans", "Japanese_ja"]
     private var dicoLocalisation:NSDictionary!
     
     

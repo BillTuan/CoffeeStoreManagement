@@ -1,0 +1,59 @@
+/* 
+  Localizable.strings
+  RestaurantManagement
+
+  Created by Bill on 4/16/17.
+  Copyright © 2017 Bill. All rights reserved.
+*/
+"BarItem1" = "餐桌";
+"BarItem2" = "財務統計";
+"BarItem3" = "菜單";
+"BarItem4" = "設定";
+"Back" = "返回";
+"Area" = "樓層";
+"Tables" = "餐桌";
+"MessageAlertTable" = "您想要做什麼呢？";
+"TittleAlertTable" = "選擇此餐桌";
+"AlertCancel" = "取消";
+"TotalMoney" = "總價";
+"AddFood" = "增加餐點";
+"Pay" = "付款";
+"AddMoreFood" = "增加餐點";
+"FoodID" = "餐點代號";
+"FoodName" = "餐點名稱";
+"FoodPrice" = "價格";
+"AlertChooseAmountFood" = "選擇總量";
+"AmountOfFood" = "餐點總量";
+"Setting" = "設定";
+"Language" = "語言";
+"EditStore" = "編輯商店";
+"Edit" = "編輯";
+"ChooseLaguage" = "選擇語言";
+"StoreInfo" = "商店資訊";
+"Name" = "名稱";
+"Address" = "地址";
+"Currency" = "貨幣";
+"StoreArea" = "所在區域";
+"Detail" = "詳細介紹";
+"StoreTable" = "餐桌介紹";
+"MenuItem" = "菜單介紹";
+"Add" = "新增";
+"Edit" = "編輯";
+"ItemID" = "餐點代號";
+"ItemName" = "餐點名稱";
+"Price" = "價格";
+"Category" = "分類";
+"AddNewCategory" = "新增分類";
+"EditArea" = "編輯樓層";
+"EditTable" = "編輯餐桌";
+"EditFood" = "編輯餐點";
+"DoYouWantPay" = "確定為此餐桌結帳？";
+"currentLang" = "繁體中文";
+"AddImage" = "新增圖片";
+"Sale" = "財務統計";
+"Revenue" = "營業額";
+"Today" = "今天";
+"Thismonth" = "本月";
+"Thisyear" = "今年";
+"Amount" = "總量";
+"toDelete" = "取消此餐點";

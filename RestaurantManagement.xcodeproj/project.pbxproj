@@ -115,6 +115,12 @@
 		A9D00C421EA86539008736C6 /* EditFoodCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EditFoodCell.swift; sourceTree = "<group>"; };
 		A9D00C441EA873B1008736C6 /* Bill.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bill.swift; sourceTree = "<group>"; };
 		A9D00C461EA89465008736C6 /* BillInfo.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BillInfo.swift; sourceTree = "<group>"; };
+		A9EB9D3F1EB07311002D9D06 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Main.strings; sourceTree = "<group>"; };
+		A9EB9D401EB07311002D9D06 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		A9EB9D411EB07312002D9D06 /* ja */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ja; path = ja.lproj/Localizable.strings; sourceTree = "<group>"; };
+		A9EB9D421EB07335002D9D06 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Main.strings"; sourceTree = "<group>"; };
+		A9EB9D431EB07335002D9D06 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/LaunchScreen.strings"; sourceTree = "<group>"; };
+		A9EB9D441EB07336002D9D06 /* zh-Hans */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = "zh-Hans"; path = "zh-Hans.lproj/Localizable.strings"; sourceTree = "<group>"; };
 		A9F1A7431EACA06C0013BAD6 /* SaleViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SaleViewCell.swift; sourceTree = "<group>"; };
 		AE8A09E054C252E140003F05 /* Pods-RestaurantManagement.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantManagement.debug.xcconfig"; path = "Pods/Target Support Files/Pods-RestaurantManagement/Pods-RestaurantManagement.debug.xcconfig"; sourceTree = "<group>"; };
 		FD0513A55F7296173ACAA017 /* Pods-RestaurantManagement.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RestaurantManagement.release.xcconfig"; path = "Pods/Target Support Files/Pods-RestaurantManagement/Pods-RestaurantManagement.release.xcconfig"; sourceTree = "<group>"; };
@@ -353,6 +359,8 @@
 				en,
 				Base,
 				vi,
+				ja,
+				"zh-Hans",
 			);
 			mainGroup = A9103A641EA303B400E50456;
 			productRefGroup = A9103A6E1EA303B400E50456 /* Products */;
@@ -486,6 +494,8 @@
 			children = (
 				A9103A751EA303B400E50456 /* Base */,
 				A9103A871EA3058D00E50456 /* vi */,
+				A9EB9D3F1EB07311002D9D06 /* ja */,
+				A9EB9D421EB07335002D9D06 /* zh-Hans */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -494,6 +504,8 @@
 			isa = PBXVariantGroup;
 			children = (
 				A9103A7A1EA303B400E50456 /* Base */,
+				A9EB9D401EB07311002D9D06 /* ja */,
+				A9EB9D431EB07335002D9D06 /* zh-Hans */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -504,6 +516,8 @@
 				A9103A931EA30A6F00E50456 /* Base */,
 				A9103A951EA30A7100E50456 /* vi */,
 				A9103A961EA30C6A00E50456 /* en */,
+				A9EB9D411EB07312002D9D06 /* ja */,
+				A9EB9D441EB07336002D9D06 /* zh-Hans */,
 			);
 			name = Localizable.strings;
 			sourceTree = "<group>";

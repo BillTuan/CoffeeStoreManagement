@@ -33,6 +33,14 @@ class SettingViewController: UIViewController {
             self.languageButton.setTitle("Tiếng Việt", for: .normal)
             if SetLanguage(self.arrayLanguages[2]){}
         }))
+        actionAlert.addAction(UIAlertAction(title: "繁體中文", style: .default, handler: { (UIAlertAction) in
+            self.languageButton.setTitle("繁體中文", for: .normal)
+            if SetLanguage(self.arrayLanguages[3]){}
+        }))
+        actionAlert.addAction(UIAlertAction(title: "日本語", style: .default, handler: { (UIAlertAction) in
+            self.languageButton.setTitle("日本語", for: .normal)
+            if SetLanguage(self.arrayLanguages[4]){}
+        }))
         let cancel = cancel1
         actionAlert.addAction(UIAlertAction(title: cancel, style: .cancel, handler: nil))
         self.present(actionAlert, animated: true, completion: nil)

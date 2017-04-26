@@ -1,0 +1,294 @@
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "0Rd-aU-2WQ"; */
+"0Rd-aU-2WQ.text" = "Detail";
+
+/* Class = "UILabel"; text = "15000"; ObjectID = "17z-lJ-Efr"; */
+"17z-lJ-Efr.text" = "15000";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "1Za-GF-tBH"; */
+"1Za-GF-tBH.title" = "Title";
+
+/* Class = "UILabel"; text = "80000"; ObjectID = "2T0-Ks-a7r"; */
+"2T0-Ks-a7r.text" = "80000";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "3c2-nW-Cr6"; */
+"3c2-nW-Cr6.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "4Wr-dT-JY4"; */
+"4Wr-dT-JY4.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "5vx-5j-aaf"; */
+"5vx-5j-aaf.text" = "Detail";
+
+/* Class = "UILabel"; text = "Store Tables"; ObjectID = "7iu-nu-grI"; */
+"7iu-nu-grI.text" = "Store Tables";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "8Fi-c6-zFY"; */
+"8Fi-c6-zFY.text" = "Detail";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "8RZ-Zl-C51"; */
+"8RZ-Zl-C51.text" = "Name";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "AKZ-tj-0av"; */
+"AKZ-tj-0av.text" = "Name";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "AWk-rK-jpp"; */
+"AWk-rK-jpp.text" = "Category";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "AZt-k5-u37"; */
+"AZt-k5-u37.text" = "Name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ApO-74-1ch"; */
+"ApO-74-1ch.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "Bcl-Tk-P5K"; */
+"Bcl-Tk-P5K.normalTitle" = "Add";
+
+/* Class = "UISegmentedControl"; Bmz-0r-Yi1.segmentTitles[0] = "Today"; ObjectID = "Bmz-0r-Yi1"; */
+"Bmz-0r-Yi1.segmentTitles[0]" = "Today";
+
+/* Class = "UISegmentedControl"; Bmz-0r-Yi1.segmentTitles[1] = "This month"; ObjectID = "Bmz-0r-Yi1"; */
+"Bmz-0r-Yi1.segmentTitles[1]" = "This month";
+
+/* Class = "UISegmentedControl"; Bmz-0r-Yi1.segmentTitles[2] = "This year"; ObjectID = "Bmz-0r-Yi1"; */
+"Bmz-0r-Yi1.segmentTitles[2]" = "This year";
+
+/* Class = "UILabel"; text = "15000"; ObjectID = "Cu0-kc-sbc"; */
+"Cu0-kc-sbc.text" = "15000";
+
+/* Class = "UIButton"; normalTitle = "Edit store"; ObjectID = "DgX-pl-bK1"; */
+"DgX-pl-bK1.normalTitle" = "Edit store";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "DwL-pS-z3f"; */
+"DwL-pS-z3f.text" = "Label";
+
+/* Class = "UILabel"; text = "Detail:"; ObjectID = "Foi-zj-4SG"; */
+"Foi-zj-4SG.text" = "Detail:";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "FrW-J8-Xlt"; */
+"FrW-J8-Xlt.text" = "Name";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "FyU-wk-GYw"; */
+"FyU-wk-GYw.text" = "Category";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "G1S-xu-u41"; */
+"G1S-xu-u41.text" = "Label";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "Gdf-D2-6fC"; */
+"Gdf-D2-6fC.text" = "Price";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "H19-5x-ug1"; */
+"H19-5x-ug1.text" = "Name";
+
+/* Class = "UILabel"; text = "Bánh mì"; ObjectID = "I4d-Zf-fnj"; */
+"I4d-Zf-fnj.text" = "Bánh mì";
+
+/* Class = "UILabel"; text = "Menu Items"; ObjectID = "IMd-ym-Lsx"; */
+"IMd-ym-Lsx.text" = "Menu Items";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Jwi-C2-0O6"; */
+"Jwi-C2-0O6.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Category"; ObjectID = "KNf-DI-wZn"; */
+"KNf-DI-wZn.text" = "Category";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Kcx-hN-zUh"; */
+"Kcx-hN-zUh.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Kfe-Qn-k5i"; */
+"Kfe-Qn-k5i.normalTitle" = "Button";
+
+/* Class = "UINavigationItem"; title = "Areas"; ObjectID = "Ldo-6y-wIh"; */
+"Ldo-6y-wIh.title" = "Areas";
+
+/* Class = "UILabel"; text = "123"; ObjectID = "M73-QW-NtR"; */
+"M73-QW-NtR.text" = "123";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "MOf-Xj-dV8"; */
+"MOf-Xj-dV8.title" = "Title";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "MwK-yV-gr8"; */
+"MwK-yV-gr8.text" = "Name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "MzZ-P8-T6x"; */
+"MzZ-P8-T6x.text" = "Label";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "Nrr-YE-9Am"; */
+"Nrr-YE-9Am.text" = "Detail";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "OE7-E2-4hG"; */
+"OE7-E2-4hG.text" = "Label";
+
+/* Class = "UILabel"; text = "Total money:"; ObjectID = "OPT-ad-6vs"; */
+"OPT-ad-6vs.text" = "Total money:";
+
+/* Class = "UILabel"; text = "Revenue"; ObjectID = "OS7-pr-hK8"; */
+"OS7-pr-hK8.text" = "Revenue";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "PHf-eG-1ey"; */
+"PHf-eG-1ey.text" = "Price";
+
+/* Class = "UILabel"; text = "Language"; ObjectID = "PZy-MX-Er0"; */
+"PZy-MX-Er0.text" = "Language";
+
+/* Class = "UILabel"; text = "Edit"; ObjectID = "PkK-WS-hBP"; */
+"PkK-WS-hBP.text" = "Edit";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "Prq-1M-gD4"; */
+"Prq-1M-gD4.text" = "Price";
+
+/* Class = "UILabel"; text = "Revenue"; ObjectID = "PzN-kb-q2a"; */
+"PzN-kb-q2a.text" = "Revenue";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "Qvs-xW-bTq"; */
+"Qvs-xW-bTq.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Amount"; ObjectID = "S6H-Tz-x3b"; */
+"S6H-Tz-x3b.text" = "Amount";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "SLb-oh-RLg"; */
+"SLb-oh-RLg.normalTitle" = "Add";
+
+/* Class = "UILabel"; text = "Area"; ObjectID = "U27-B4-TsT"; */
+"U27-B4-TsT.text" = "Area";
+
+/* Class = "UILabel"; text = "Item Name"; ObjectID = "UkJ-my-kmQ"; */
+"UkJ-my-kmQ.text" = "Item Name";
+
+/* Class = "UIButton"; normalTitle = "Add"; ObjectID = "WgV-fM-xwA"; */
+"WgV-fM-xwA.normalTitle" = "Add";
+
+/* Class = "UIButton"; normalTitle = "Button"; ObjectID = "WmG-hm-Na0"; */
+"WmG-hm-Na0.normalTitle" = "Button";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "Xfs-7D-OHj"; */
+"Xfs-7D-OHj.text" = "Label";
+
+/* Class = "UILabel"; text = "Store Area"; ObjectID = "YKH-PZ-a0P"; */
+"YKH-PZ-a0P.text" = "Store Area";
+
+/* Class = "UILabel"; text = "Detail:"; ObjectID = "a1c-Gm-JP0"; */
+"a1c-Gm-JP0.text" = "Detail:";
+
+/* Class = "UIButton"; normalTitle = "Statistic"; ObjectID = "bWV-Ir-cVP"; */
+"bWV-Ir-cVP.normalTitle" = "Statistic";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "cA3-gT-27v"; */
+"cA3-gT-27v.text" = "Price";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "cJJ-CE-FUD"; */
+"cJJ-CE-FUD.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "d0J-po-dnX"; */
+"d0J-po-dnX.title" = "Item";
+
+/* Class = "UILabel"; text = "Currency"; ObjectID = "f1L-13-BGQ"; */
+"f1L-13-BGQ.text" = "Currency";
+
+/* Class = "UILabel"; text = "Area"; ObjectID = "fUT-GB-p5Y"; */
+"fUT-GB-p5Y.text" = "Area";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fZh-i9-h82"; */
+"fZh-i9-h82.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "fl3-ur-ACY"; */
+"fl3-ur-ACY.text" = "Label";
+
+/* Class = "UIBarButtonItem"; title = "Item"; ObjectID = "hBI-Jn-q3q"; */
+"hBI-Jn-q3q.title" = "Item";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "hG9-bK-lIf"; */
+"hG9-bK-lIf.text" = "Label";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "huN-JY-Zbo"; */
+"huN-JY-Zbo.text" = "Name";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "iCJ-4A-q6g"; */
+"iCJ-4A-q6g.normalTitle" = "Edit";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ieb-dT-P5G"; */
+"ieb-dT-P5G.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "English"; ObjectID = "j3s-Lo-NB1"; */
+"j3s-Lo-NB1.normalTitle" = "English";
+
+/* Class = "UILabel"; text = "Address"; ObjectID = "lXa-cV-krM"; */
+"lXa-cV-krM.text" = "Address";
+
+/* Class = "UILabel"; text = "Store Info"; ObjectID = "mm5-Bc-Zqq"; */
+"mm5-Bc-Zqq.text" = "Store Info";
+
+/* Class = "UILabel"; text = "Area:"; ObjectID = "nMV-Xf-ZDf"; */
+"nMV-Xf-ZDf.text" = "Area:";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "neZ-ee-0wi"; */
+"neZ-ee-0wi.text" = "Name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "npL-NP-Baf"; */
+"npL-NP-Baf.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "o90-Fx-Fqq"; */
+"o90-Fx-Fqq.normalTitle" = "Edit";
+
+/* Class = "UILabel"; text = "Bánh mì"; ObjectID = "oV9-Hc-Ynw"; */
+"oV9-Hc-Ynw.text" = "Bánh mì";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pCT-rM-1iR"; */
+"pCT-rM-1iR.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "qDl-qg-ePe"; */
+"qDl-qg-ePe.text" = "Label";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "qVu-Xd-vwM"; */
+"qVu-Xd-vwM.text" = "Name";
+
+/* Class = "UILabel"; text = "Item ID"; ObjectID = "qYF-hM-20g"; */
+"qYF-hM-20g.text" = "Item ID";
+
+/* Class = "UILabel"; text = "Name:"; ObjectID = "qfF-gy-JeE"; */
+"qfF-gy-JeE.text" = "Name:";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "r8n-ex-mNL"; */
+"r8n-ex-mNL.text" = "Label";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "rHU-em-1zh"; */
+"rHU-em-1zh.text" = "Label";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "rhf-r4-vGj"; */
+"rhf-r4-vGj.text" = "Detail";
+
+/* Class = "UIButton"; normalTitle = "Edit"; ObjectID = "sTi-Zu-E7j"; */
+"sTi-Zu-E7j.normalTitle" = "Edit";
+
+/* Class = "UILabel"; text = "5"; ObjectID = "so5-hU-uZ8"; */
+"so5-hU-uZ8.text" = "5";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "src-lf-zeX"; */
+"src-lf-zeX.text" = "Name";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "tuh-RO-5t6"; */
+"tuh-RO-5t6.text" = "Name";
+
+/* Class = "UINavigationItem"; title = "ABC"; ObjectID = "uNu-0i-NjA"; */
+"uNu-0i-NjA.title" = "ABC";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ue3-1q-C2S"; */
+"ue3-1q-C2S.text" = "Label";
+
+/* Class = "UILabel"; text = "Floor"; ObjectID = "w1t-5u-okE"; */
+"w1t-5u-okE.text" = "Floor";
+
+/* Class = "UILabel"; text = "Area"; ObjectID = "wVy-7N-QBP"; */
+"wVy-7N-QBP.text" = "Area";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "wW0-dK-crq"; */
+"wW0-dK-crq.text" = "Label";
+
+/* Class = "UILabel"; text = "Price"; ObjectID = "xC4-V7-gKE"; */
+"xC4-V7-gKE.text" = "Price";
+
+/* Class = "UINavigationItem"; title = "Title"; ObjectID = "zCQ-R5-m2E"; */
+"zCQ-R5-m2E.title" = "Title";
+
+/* Class = "UILabel"; text = "Detail"; ObjectID = "zKj-Pp-Pbr"; */
+"zKj-Pp-Pbr.text" = "Detail";
