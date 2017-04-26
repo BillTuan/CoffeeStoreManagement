@@ -48,7 +48,7 @@
 "EditTable" = "編集";
 "EditFood" = "編集";
 "DoYouWantPay" = "テーブルの支払いほうしいですか";
-"currentLang" = "日本語";
+"currentLang" = "英語";
 "AddImage" = "写真を追加";
 "Sale" = "セール";
 "Revenue" = "収入";
@@ -57,3 +57,12 @@
 "Thisyear" = "今年";
 "Amount" = "量";
 "toDelete" = "食物を削除";
+"Statistic" = "統計";
+"StatisticWeek" = "一周統計";
+"Income" = "收入";
+"Warning" = "警告";
+"Namemust" = "名前は空であってはいけません";
+"Nameandareamust" = "名前と面積には値が必要です";
+"Idmust" = "ID、名前、カテゴリには値が必要です";
+"Itemexist" = "IDアイテムが存在します";
+"Areaempty" = "エリアは空です。新しいエリアを追加してください。";

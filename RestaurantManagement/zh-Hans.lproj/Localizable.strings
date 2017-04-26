@@ -57,3 +57,12 @@
 "Thisyear" = "今年";
 "Amount" = "總量";
 "toDelete" = "取消此餐點";
+"Statistic" = "統計";
+"StatisticWeek" = "一周統計";
+"Income" = "收入";
+"Warning" = "警告";
+"Namemust" = "請輸入餐點名稱";
+"Nameandareamust" = "請輸入餐點名稱、區域";
+"Idmust" = "請輸入餐點代號、名稱、分類";
+"Itemexist" = "此代號重複";
+"Areaempty" = "沒有區域資訊，請新增區域資訊";
